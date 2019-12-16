@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Locale = 'br'
+Config.Locale = 'en'
 
 Config.Delays = {
 	WeedProcessing = 1000 * 10

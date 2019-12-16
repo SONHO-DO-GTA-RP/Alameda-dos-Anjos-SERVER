@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Locale = 'br'
+Config.Locale = 'en'
 
 Config.Price = 100
 
