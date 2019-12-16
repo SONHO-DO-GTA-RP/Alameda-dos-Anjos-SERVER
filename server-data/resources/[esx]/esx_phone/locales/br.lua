@@ -9,5 +9,5 @@ Locales['br'] = {
   ['contact_added'] = 'contato adicionado',
   ['contact_removed'] = 'the contact has been removed!',
   ['number_not_assigned'] = 'este número não foi atribuído...',
-  ['invalid_number'] = 'that\'s not an valid number!',
+  ['invalid_number'] = 'este número é invalido',
 }
