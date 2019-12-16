@@ -1,2 +1,2 @@
-cd /d D:\GTA-ESX-RP\server-data
-D:\GTA-ESX-RP\run.cmd +exec server.cfg
+cd /C C:\Users\Administrador\Documents\GitHub\Alameda-dos-Anjos-SERVER\server-data
+C:\Users\Administrador\Documents\GitHub\Alameda-dos-Anjos-SERVER\run.cmd +exec server.cfg
