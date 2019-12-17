@@ -22,8 +22,8 @@ RegisterCommand('tweet', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, { args = { _U('tweet_prefix', name), args }, color = { 0, 153, 204 } })
-	print(('%s: %s'):format(name, args))
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('tweet_prefix', name), message }, color = { 0, 153, 204 } })
+	--print(('%s: %s'):format(name, args))
 end, false)
 
 RegisterCommand('ilegal', function(source, args, rawCommand)
@@ -36,7 +36,7 @@ RegisterCommand('ilegal', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, source, _U('ilegal_prefix', name), args, color = { 41, 53, 59 })
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('ilegal_prefix', name), message }, color = { 41, 53, 59 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
@@ -50,7 +50,7 @@ RegisterCommand('192', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, source, _U('192_prefix', name), args, color = { 246, 3, 59 })
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('192_prefix', name), message }, color = { 246, 3, 59 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
@@ -64,7 +64,7 @@ RegisterCommand('190', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, source, _U('190_prefix', name), args, color = { 130, 130, 255 })
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('190_prefix', name), message }, color = { 130, 130, 255 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
@@ -78,7 +78,7 @@ RegisterCommand('olx', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, source, _U('olx_prefix', name), args, color = { 239, 239, 56 })
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('olx_prefix', name), message }, color = { 239, 239, 56 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
@@ -92,7 +92,7 @@ RegisterCommand('forarp', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, source, _U('forarp_prefix', name), args, color = { 239, 239, 56 })
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('forarp_prefix', name), message } color = { 239, 239, 56 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
