@@ -556,3 +556,24 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+-- Toggle HUD Hotkey
+
+Toggle=true
+
+if Config.EnableHud then
+        Citizen.CreateThread(function()
+	        while true do
+		        Citizen.Wait(1)
+		        if IsControlJustPressed(0, Keys['F9']) and Toggle == true then
+			        Toggle = false
+			        TriggerEvent('es:setMoneyDisplay', 0.0)
+			        ESX.UI.HUD.SetDisplay(0.0)
+		        elseif IsControlJustPressed(0, Keys['F9']) and Toggle == false then
+			        Toggle = true
+			        TriggerEvent('es:setMoneyDisplay', 1.0)
+			        ESX.UI.HUD.SetDisplay(1.0)
+		        end
+	        end
+        end)
+end
