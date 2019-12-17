@@ -92,7 +92,7 @@ RegisterCommand('forarp', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, { args = { _U('forarp_prefix', name), message } color = { 239, 239, 56 } })
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('forarp_prefix', name), message }, color = { 239, 239, 56 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
