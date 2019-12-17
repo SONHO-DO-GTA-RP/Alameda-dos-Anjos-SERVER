@@ -8,7 +8,7 @@ Config.Type          = 1
 Config.Locale        = 'br'
 
 Config.LicenseEnable = false -- only turn this on if you are using esx_license
-Config.LicensePrice  = 5000
+Config.LicensePrice  = 50000
 
 Config.Zones = {
 
@@ -32,7 +32,7 @@ Config.Zones = {
 		Legal = false,
 		Items = {},
 		Locations = {
-			vector3(-1306.2, -394.0, 35.6)
+			-- vector3(-1306.2, -394.0, 35.6)
 		}
 	}
 
