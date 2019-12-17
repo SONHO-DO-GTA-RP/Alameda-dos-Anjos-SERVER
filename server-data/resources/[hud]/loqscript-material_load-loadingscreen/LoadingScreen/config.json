@@ -1,0 +1,42 @@
+[
+	{
+		"useBackgroundColour" : "true",
+		"backgroundColour" : "20,20,20",
+		"useBackgroundImage" : "false",
+		"backgroundImagePath" : "images/backgroundImg7.jpg",
+		"useTextColour" : "false",
+		"textColour" : "0,0,0",
+		"useBoldText" : "false",
+		"serverTitle" : "ALAMEDA DOS ANJOS - Real Life Roleplay",
+		"playAudioInBackground" : "true",
+		"YTVideoID" : "0VAF-4Er7_A",
+		"videoVolume" : "3"
+	},
+	{
+		"rule1" : "Leia as regras no discord do Servidor",
+		"rule2" : "Mantenha o bom senso, seja honesto",
+		"rule3" : "Racismo e preconceitos é permaBAN sem aviso",
+		"rule4" : "Usar o Discord e ter um microfone é obrigatório",
+		"rule5" : "Apenas membros com o nome Ranger são da Staff",
+		"rule6" : "De preferência, grave todas as suas Ações!",
+		"rule7" : "Na dúvida, chame um Ranger!"
+	},
+	{
+		"servers1" : "Website: http://142.44.222.17/",
+		"servers2" : "Discord: https://discord.gg/AD25MMS",
+		"servers3" : "IP do Servidor: 142.44.222.17",
+		"servers4" : "",
+		"servers5" : "SALVE O SERVIDOR NOS SEUS FAVORITOS",
+		"servers6" : "TODAS AS REGRAS DISPONIVEIS NO DISCORD E SITE",
+		"servers7" : "TENHAM UM BOM JOGO!!"
+	},
+	{
+		"content1" : "Facções: Comando Vermelho e Los Zetas (C/VAGAS)" ,
+		"content2" : "Máfias: Mafia Italiana e Yakuza (C/VAGAS)",
+		"content3" : "Profissões Legais BALANCEADAS (VAGAS NA PM/SAMU)",
+		"content4" : "Favelas Customizadas",
+		"content5" : "Servidor com todos ADDONs configurados do 0",
+		"content6" : "Base ESX Limpa",
+		"content7" : "Atualizações Diárias com Patch List/Preview"
+	}
+]
