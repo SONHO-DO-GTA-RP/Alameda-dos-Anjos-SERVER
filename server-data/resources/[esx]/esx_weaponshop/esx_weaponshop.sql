@@ -14,7 +14,7 @@ INSERT INTO `licenses` (`type`, `label`) VALUES
 ;
 
 INSERT INTO `weashops` (`zone`, `item`, `price`) VALUES
-	('GunShop','WEAPON_PISTOL', 50000),
+	('GunShop', 'WEAPON_PISTOL', 50000),
 	-- ('BlackWeashop','WEAPON_PISTOL', 500),
 	-- ('GunShop', 'WEAPON_FLASHLIGHT', 60),
 	-- ('BlackWeashop', 'WEAPON_FLASHLIGHT', 70),
