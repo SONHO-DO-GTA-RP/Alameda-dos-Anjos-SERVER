@@ -1,6 +1,6 @@
 Locales['en'] = {
-  ['ooc_prefix'] = 'OOC | %s',
-  ['twt_help'] = 'send a tweet',
+  ['ooc_prefix'] = '%s',
+  ['twt_help'] = 'mandar um tweet',
   ['tweet_prefix'] = '^0[^4Twitter^0] (^5@%s^0)',
   ['ilegal_help'] = 'chat para atividades ilegais',
   ['ilegal_prefix'] = '^0[^9ilegal^0:] (^9%s^0)',
