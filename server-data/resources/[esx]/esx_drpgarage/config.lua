@@ -60,7 +60,7 @@ Config.Garages = {
 		},
 	},
 	
-	"Garage de Paleto" = {	
+	"Garagem de Paleto" = {	
 		Pos = {x=105.359, y=6613.586, z=31.3973},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -91,7 +91,7 @@ Config.Garages = {
 		},
 	},
 	
-	"Garage do Porto" = {	
+	"Garagem do Porto" = {	
 		Pos = {x = -1511.6556396484,y = 5009.875,z = 61.800533294678 },
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
