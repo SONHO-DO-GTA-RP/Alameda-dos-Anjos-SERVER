@@ -19,7 +19,7 @@ function loadWhiteList()
 		WhiteList = {}
 
 		for i=1, #result, 1 do
-			table.insert(WhiteList, {
+			table.insert(whiteList, {
 				identifier = result[i].identifier,
 				last_connection = result[i].last_connection,
 				ban_reason = result[i].ban_reason,
@@ -30,7 +30,7 @@ function loadWhiteList()
 	end)
 end
 
-AddEventHandler('playerDropped', function(reason)
+AddEventHandler('playerDropped', function(reason) 
 	local _source = source
 
 	if(reason ~= "Disconnected.") then
