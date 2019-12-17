@@ -2,7 +2,7 @@ resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
 
 description 'ES Extended'
 
-version '1.1.2'
+version '1.1.0'
 
 server_scripts {
 	'@async/async.lua',
@@ -59,9 +59,7 @@ client_scripts {
 
 	'common/modules/math.lua',
 	'common/modules/table.lua',
-	'common/functions.lua',
-
-	'es_extended/locale.lua'
+	'common/functions.lua'
 }
 
 ui_page {
