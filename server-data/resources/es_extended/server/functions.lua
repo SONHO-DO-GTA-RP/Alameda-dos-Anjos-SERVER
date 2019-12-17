@@ -41,42 +41,42 @@ ESX.SavePlayer = function(xPlayer, cb)
 	xPlayer.setLastPosition(xPlayer.getCoords())
 
 	-- User accounts
-	for i=1, #xPlayer.accounts, 1 do
-		if ESX.LastPlayerData[xPlayer.source].accounts[xPlayer.accounts[i].name] ~= xPlayer.accounts[i].money then
+	for k,v in ipairs(xPlayer.accounts) do
+		if ESX.LastPlayerData[xPlayer.source].accounts[v.name] ~= v.money then
 			table.insert(asyncTasks, function(cb)
-				MySQL.Async.execute('UPDATE user_accounts SET `money` = @money WHERE identifier = @identifier AND name = @name', {
-					['@money']      = xPlayer.accounts[i].money,
+				MySQL.Async.execute('UPDATE user_accounts SET money = @money WHERE identifier = @identifier AND name = @name', {
+					['@money']      = v.money,
 					['@identifier'] = xPlayer.identifier,
-					['@name']       = xPlayer.accounts[i].name
+					['@name']       = v.name
 				}, function(rowsChanged)
 					cb()
 				end)
 			end)
 
-			ESX.LastPlayerData[xPlayer.source].accounts[xPlayer.accounts[i].name] = xPlayer.accounts[i].money
+			ESX.LastPlayerData[xPlayer.source].accounts[v.name] = v.money
 		end
 	end
 
 	-- Inventory items
-	for i=1, #xPlayer.inventory, 1 do
-		if ESX.LastPlayerData[xPlayer.source].items[xPlayer.inventory[i].name] ~= xPlayer.inventory[i].count then
+	for k,v in ipairs(xPlayer.inventory) do
+		if ESX.LastPlayerData[xPlayer.source].items[v.name] ~= v.count then
 			table.insert(asyncTasks, function(cb)
-				MySQL.Async.execute('UPDATE user_inventory SET `count` = @count WHERE identifier = @identifier AND item = @item', {
-					['@count']      = xPlayer.inventory[i].count,
+				MySQL.Async.execute('UPDATE user_inventory SET count = @count WHERE identifier = @identifier AND item = @item', {
+					['@count']      = v.count,
 					['@identifier'] = xPlayer.identifier,
-					['@item']       = xPlayer.inventory[i].name
+					['@item']       = v.name
 				}, function(rowsChanged)
 					cb()
 				end)
 			end)
 
-			ESX.LastPlayerData[xPlayer.source].items[xPlayer.inventory[i].name] = xPlayer.inventory[i].count
+			ESX.LastPlayerData[xPlayer.source].items[v.name] = v.count
 		end
 	end
 
 	-- Job, loadout and position
 	table.insert(asyncTasks, function(cb)
-		MySQL.Async.execute('UPDATE users SET `job` = @job, `job_grade` = @job_grade, `loadout` = @loadout, `position` = @position WHERE identifier = @identifier', {
+		MySQL.Async.execute('UPDATE users SET job = @job, job_grade = @job_grade, loadout = @loadout, position = @position WHERE identifier = @identifier', {
 			['@job']        = xPlayer.job.name,
 			['@job_grade']  = xPlayer.job.grade,
 			['@loadout']    = json.encode(xPlayer.getLoadout()),
@@ -135,7 +135,6 @@ ESX.GetPlayers = function()
 	return sources
 end
 
-
 ESX.GetPlayerFromId = function(source)
 	return ESX.Players[tonumber(source)]
 end
@@ -162,16 +161,19 @@ ESX.GetItemLabel = function(item)
 	end
 end
 
-ESX.CreatePickup = function(type, name, count, label, player)
+ESX.CreatePickup = function(type, name, count, label, playerId)
 	local pickupId = (ESX.PickupId == 65635 and 0 or ESX.PickupId + 1)
+	local xPlayer = ESX.GetPlayerFromId(playerId)
 
 	ESX.Pickups[pickupId] = {
 		type  = type,
 		name  = name,
-		count = count
+		count = count,
+		label = label,
+		coords = xPlayer.getCoords()
 	}
 
-	TriggerClientEvent('esx:pickup', -1, pickupId, label, player)
+	TriggerClientEvent('esx:pickup', -1, pickupId, label, playerId)
 	ESX.PickupId = pickupId
 end
 
