@@ -2,7 +2,7 @@ Config = {}
 
 Config.Locale = 'en'
 
-Config.EnableAntiSpam = true
-Config.WaitingTime = 20
-Config.CommunityLink = 'COMMUNITY_LINK'
+Config.EnableAntiSpam = false
+Config.WaitingTime = 5
+Config.CommunityLink = 'https://discord.gg/AD25MMS'
 Config.PlayersToStartRocade = 32

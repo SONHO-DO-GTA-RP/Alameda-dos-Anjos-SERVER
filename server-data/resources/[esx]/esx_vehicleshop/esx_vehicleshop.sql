@@ -67,20 +67,20 @@ CREATE TABLE `vehicle_categories` (
 );
 
 INSERT INTO `vehicle_categories` (name, label) VALUES
-	('compacts','Compacts'),
-	('coupes','Coupés'),
-	('sedans','Sedans'),
-	('sports','Sports'),
-	('sportsclassics','Sports Classics'),
-	('super','Super'),
-	('muscle','Muscle'),
-	('offroad','Off Road'),
-	('suvs','SUVs'),
-	('vans','Vans'),
-	('motorcycles','Motos')
+	('Popular','Popular'),
+	('Esportivo','Esportivo'),
+	('Muscle','Muscle'),
+	('Luxo','Luxo'),
+	('Pickups','Pickups'),
+	('Motos','Motos'),
+	--('muscle','Muscle'),
+	--('offroad','Off Road'),
+	--('suvs','SUVs'),
+	--('vans','Vans'),
+	--('motorcycles','Motos')
 ;
 
-CREATE TABLE `vehicles` (
+CREATE TABLE `vehicles` 
 	`name` varchar(60) NOT NULL,
 	`model` varchar(60) NOT NULL,
 	`price` int(11) NOT NULL,
@@ -90,8 +90,8 @@ CREATE TABLE `vehicles` (
 );
 
 INSERT INTO `vehicles` (name, model, price, category) VALUES
-	('Blade','blade',15000,'muscle'),
-	('Buccaneer','buccaneer',18000,'muscle'),
+	('BMW I8','i8',1,'Esportivo'),
+	('Dodge Charger','mgt',1,'Muscle'),
 	('Buccaneer Rider','buccaneer2',24000,'muscle'),
 	('Chino','chino',15000,'muscle'),
 	('Chino Luxe','chino2',19000,'muscle'),
