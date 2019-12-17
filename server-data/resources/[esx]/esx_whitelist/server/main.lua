@@ -19,6 +19,9 @@ MySQL.ready(function()
 end)
 
 AddEventHandler('playerConnecting', function(name, setCallback, deferrals)
+	--Teste
+	loadWhiteList()
+
 	-- Mark this connection as deferred, this is to prevent problems while checking player identifiers.
 	deferrals.defer()
 
