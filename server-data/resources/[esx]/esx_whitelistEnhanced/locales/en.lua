@@ -1,5 +1,5 @@
 Locales['en'] = {
-  ['not_in_whitelist'] = 'Este servidor está usando Whitelist, abra a steam e faça a whitelist no discord: https://discord.gg/AD25MMS  %s',
+  ['not_in_whitelist'] = 'Este servidor está usando Whitelist, abra a steam e faça a whitelist no discord:  %s',
   ['missing_steam_id'] = 'Unable to find your steamID',
   ['banned_from_server'] = 'You are banned from this server',
   ['waiting_queue_message'] = 'Você está na fila na posição: (%i/%i)',
