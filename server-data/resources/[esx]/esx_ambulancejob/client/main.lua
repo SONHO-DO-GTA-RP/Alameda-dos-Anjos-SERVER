@@ -79,22 +79,22 @@ Citizen.CreateThread(function()
 end)
 
 -- Disable most inputs when dead
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(0)
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		Citizen.Wait(0)
 
-		if isDead then
-			DisableAllControlActions(0)
-			EnableControlAction(0, Keys['G'], true)
-			EnableControlAction(0, Keys['T'], true)
-			EnableControlAction(0, Keys['E'], true)
-			EnableControlAction(0, 166, true)
-			EnableControlAction(0, 213, true)
-		else
-			Citizen.Wait(500)
-		end
-	end
-end)
+-- 		if isDead then
+-- 			-- DisableAllControlActions(0)
+-- 			-- EnableControlAction(0, Keys['G'], true)
+-- 			-- EnableControlAction(0, Keys['T'], true)
+-- 			-- EnableControlAction(0, Keys['E'], true)
+-- 			-- EnableControlAction(0, 166, true)
+-- 			-- EnableControlAction(0, 213, true)
+-- 		else
+-- 			Citizen.Wait(500)
+-- 		end
+-- 	end
+-- end)
 
 function OnPlayerDeath()
 	isDead = true
