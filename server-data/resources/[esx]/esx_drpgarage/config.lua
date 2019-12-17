@@ -26,7 +26,7 @@ Config = {
 
 Config.Garages = {
 
-	Garage_Centre = {	
+	"Garagem da Praça" = {	
 		Pos = {x=215.800, y=-810.057, z=29.727},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -60,7 +60,7 @@ Config.Garages = {
 		},
 	},
 	
-	Garage_Paleto = {	
+	"Garage de Paleto" = {	
 		Pos = {x=105.359, y=6613.586, z=31.3973},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -91,7 +91,7 @@ Config.Garages = {
 		},
 	},
 	
-	Garage_Poissoniers = {	
+	"Garage do Porto" = {	
 		Pos = {x = -1511.6556396484,y = 5009.875,z = 61.800533294678 },
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -122,7 +122,7 @@ Config.Garages = {
 		},
 	},
 	
-	Garage_SandyShore = {	
+	"Garagem da Vila" = {	
 		Pos = {x = 1501.2,y = 3762.19,z = 33.0 },
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -153,7 +153,7 @@ Config.Garages = {
 		},
 	},
 	
-		Garage_Aeroport = {	
+		"Garagem do Aeroporto" = {	
 		Pos = {x = -977.21661376953,y = -2710.3798828125,z = 12.853487014771 },
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
