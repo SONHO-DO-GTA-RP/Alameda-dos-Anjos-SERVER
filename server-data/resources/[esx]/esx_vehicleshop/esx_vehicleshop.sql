@@ -154,7 +154,6 @@ INSERT INTO `vehicles` (name, model, price, category) VALUES
 	('Ford F350','18f350',220000,'Pickups'),
 	('Mercedes Benz X-Class','mercxclass',370000,'Pickups'),
 	('Nissan TITAN WARRIOR','titan17',410000,'Pickups'),
-	('Toyota Hilux','vigo',280000,'Pickups'),
 	('Volkswagen AMAROK','amarok',250000,'Pickups'),
 	('BMWS1000RR','bs17',140000,'Motos'),
 	('Honda CBR1000','hcbr17',220000,'Motos'),
