@@ -19,7 +19,7 @@ function loadWhiteList()
 		WhiteList = {}
 
 		for i=1, #result, 1 do
-			table.insert(whiteList, {
+			table.insert(whitelist {
 				identifier = result[i].identifier,
 				last_connection = result[i].last_connection,
 				ban_reason = result[i].ban_reason,
