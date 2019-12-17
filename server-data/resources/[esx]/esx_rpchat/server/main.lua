@@ -12,7 +12,7 @@ AddEventHandler('chatMessage', function(source, name, message)
 	end
 end)
 
-RegisterCommand('twt', function(source, args, rawCommand)
+RegisterCommand('tweet', function(source, args, rawCommand)
 	if source == 0 then
 		print('esx_rpchat: you can\'t use this command from rcon!')
 		return
@@ -22,11 +22,11 @@ RegisterCommand('twt', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, { args = { _U('twt_prefix', name), args }, color = { 0, 153, 204 } })
+	TriggerClientEvent('chat:addMessage', -1, { args = { _U('tweet_prefix', name), args }, color = { 0, 153, 204 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
-RegisterCommand('me', function(source, args, rawCommand)
+RegisterCommand('ilegal', function(source, args, rawCommand)
 	if source == 0 then
 		print('esx_rpchat: you can\'t use this command from rcon!')
 		return
@@ -36,11 +36,11 @@ RegisterCommand('me', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('esx_rpchat:sendProximityMessage', -1, source, _U('me_prefix', name), args, { 255, 0, 0 })
+	TriggerClientEvent('chat:addMessage', -1, source, _U('ilegal_prefix', name), args, color = { 41, 53, 59 })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
-RegisterCommand('do', function(source, args, rawCommand)
+RegisterCommand('192', function(source, args, rawCommand)
 	if source == 0 then
 		print('esx_rpchat: you can\'t use this command from rcon!')
 		return
@@ -50,7 +50,49 @@ RegisterCommand('do', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('esx_rpchat:sendProximityMessage', -1, source, _U('do_prefix', name), args, { 0, 0, 255 })
+	TriggerClientEvent('chat:addMessage', -1, source, _U('192_prefix', name), args, color = { 246, 3, 59 })
+	--print(('%s: %s'):format(name, args))
+end, false)
+
+RegisterCommand('190', function(source, args, rawCommand)
+	if source == 0 then
+		print('esx_rpchat: you can\'t use this command from rcon!')
+		return
+	end
+
+	args = table.concat(args, ' ')
+	local name = GetPlayerName(source)
+	if Config.EnableESXIdentity then name = GetCharacterName(source) end
+
+	TriggerClientEvent('chat:addMessage', -1, source, _U('190_prefix', name), args, color = { 130, 130, 255 })
+	--print(('%s: %s'):format(name, args))
+end, false)
+
+RegisterCommand('olx', function(source, args, rawCommand)
+	if source == 0 then
+		print('esx_rpchat: you can\'t use this command from rcon!')
+		return
+	end
+
+	args = table.concat(args, ' ')
+	local name = GetPlayerName(source)
+	if Config.EnableESXIdentity then name = GetCharacterName(source) end
+
+	TriggerClientEvent('chat:addMessage', -1, source, _U('olx_prefix', name), args, color = { 239, 239, 56 })
+	--print(('%s: %s'):format(name, args))
+end, false)
+
+RegisterCommand('forarp', function(source, args, rawCommand)
+	if source == 0 then
+		print('esx_rpchat: you can\'t use this command from rcon!')
+		return
+	end
+
+	args = table.concat(args, ' ')
+	local name = GetPlayerName(source)
+	if Config.EnableESXIdentity then name = GetCharacterName(source) end
+
+	TriggerClientEvent('chat:addMessage', -1, source, _U('forarp_prefix', name), args, color = { 239, 239, 56 })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
