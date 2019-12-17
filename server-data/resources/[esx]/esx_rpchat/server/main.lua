@@ -23,7 +23,7 @@ RegisterCommand('tweet', function(source, args, rawCommand)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
 	TriggerClientEvent('chat:addMessage', -1, { args = { _U('tweet_prefix', name), args }, color = { 0, 153, 204 } })
-	--print(('%s: %s'):format(name, args))
+	print(('%s: %s'):format(name, args))
 end, false)
 
 RegisterCommand('ilegal', function(source, args, rawCommand)
