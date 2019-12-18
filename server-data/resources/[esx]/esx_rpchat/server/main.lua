@@ -93,13 +93,25 @@ RegisterCommand('forarp', function(source, args, rawCommand)
 
 	local message = table.concat(args, ' ')
 	local name = GetPlayerName(source)
-	if Config.EnableESXIdentity then name = GetCharacterName(source) end
+	if Config.EnableESXIdentity then name = GetSteamName(source) end
 
 	TriggerClientEvent('chat:addMessage', -1, { args = { _U('forarp_prefix', name), message }, color = { 128, 128, 128 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
 function GetCharacterName(source)
+	local result = MySQL.Sync.fetchAll('SELECT firstname, lastname FROM users WHERE identifier = @identifier', {
+		['@identifier'] = GetPlayerIdentifiers(source)[1]
+	})
+
+	if result[1] and result[1].firstname and result[1].lastname then
+		return ('%s %s'):format(result[1].firstname, result[1].lastname)
+	else
+		return GetPlayerName(source)
+	end
+end
+
+function GetSteamName(source)
 	local result = MySQL.Sync.fetchAll('SELECT name FROM users WHERE identifier = @identifier', {
 		['@identifier'] = GetPlayerIdentifiers(source)[1]
 	})

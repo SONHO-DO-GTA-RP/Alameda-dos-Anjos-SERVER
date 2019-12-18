@@ -38,7 +38,7 @@ Config.vehicle = {
 		cruiser		= '',
 		signalLeft	= '',
 		signalRight	= '',
-		signalBoth	= '',
+		signalBoth	= 'UP',
 	}
 }
 
