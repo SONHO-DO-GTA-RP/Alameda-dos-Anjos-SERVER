@@ -36,7 +36,7 @@ RegisterCommand('ilegal', function(source, args, rawCommand)
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	TriggerClientEvent('chat:addMessage', -1, { args = { _U('ilegal_prefix', name), message }, color = { 41, 53, 59 } })
+	TriggerClientEvent('chat:addMessage', -1, source, _U('ilegal_prefix'), args, color = { 41, 53, 59 } })
 	--print(('%s: %s'):format(name, args))
 end, false)
 
