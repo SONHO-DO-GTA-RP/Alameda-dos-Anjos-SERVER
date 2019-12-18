@@ -117,7 +117,7 @@ function getPlayerVehicles(identifier)
 	local vehicles = {}
 	local data = MySQL.Sync.fetchAll('SELECT * FROM owned_vehicles WHERE owner=@identifier AND type = @type',{['@identifier'] = identifier}),{
 	['@type']   = 'Esportivo'
-	}for _,v in pairs(data) do
+	}, for _,v in pairs(data) do
 		local vehicle = json.decode(v.vehicle)
 		table.insert(vehicles, {id = v.id, plate = v.plate})
 	end
