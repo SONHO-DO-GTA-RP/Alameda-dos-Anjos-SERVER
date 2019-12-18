@@ -13,7 +13,7 @@ local Keys = {
 Config = {}
 Config.Locale = 'br'
 
-Config.servername = 'ServerName' -- change it to you're server name
+Config.servername = 'Alameda dos Anjos' -- change it to you're server name
 Config.doublejob = false -- enable if you're using esx double job
 Config.noclip_speed = 1.0 -- change it to change the speed in noclip
 
@@ -25,7 +25,7 @@ Config.Menu = {
 }
 
 Config.handsUP = {
-	clavier = Keys['~']
+	clavier = Keys['X']
 }
 
 Config.pointing = {
@@ -33,7 +33,7 @@ Config.pointing = {
 }
 
 Config.stopAnim = {
-	clavier = Keys['X']
+	clavier = Keys['~']
 }
 
 Config.crouch = {
