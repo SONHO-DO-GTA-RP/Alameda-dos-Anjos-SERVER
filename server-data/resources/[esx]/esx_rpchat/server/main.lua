@@ -1,3 +1,5 @@
+
+
 AddEventHandler('es:invalidCommandHandler', function(source, command_args, user)
 	CancelEvent()
 	TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', _U('unknown_command', command_args[1]) } })
@@ -18,12 +20,12 @@ RegisterCommand('tweet', function(source, args, rawCommand)
 		return
 	end
 
-	args = table.concat(args, ' ')
+	local message = table.concat(args, ' ')
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
 	TriggerClientEvent('chat:addMessage', -1, { args = { _U('tweet_prefix', name), message }, color = { 128, 128, 128 } })
-	--print(('%s: %s'):format(name, args))
+	print(('%s: %s: %s'):format(name, args, rawCommand))
 end, false)
 
 RegisterCommand('ilegal', function(source, args, rawCommand)
@@ -32,8 +34,8 @@ RegisterCommand('ilegal', function(source, args, rawCommand)
 		return
 	end
 
-	args = table.concat(args, ' ')
-	local name = GetPlayerName(source)
+	local message = table.concat(args, ' ')
+	--local name = getPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
 	TriggerClientEvent('chat:addMessage', -1, { args = { _U('ilegal_prefix'), message }, color = { 128, 128, 128 } })
@@ -46,7 +48,7 @@ RegisterCommand('192', function(source, args, rawCommand)
 		return
 	end
 
-	args = table.concat(args, ' ')
+	local message = table.concat(args, ' ')
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
@@ -60,7 +62,7 @@ RegisterCommand('190', function(source, args, rawCommand)
 		return
 	end
 
-	args = table.concat(args, ' ')
+	local message = table.concat(args, ' ')
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
@@ -74,7 +76,7 @@ RegisterCommand('olx', function(source, args, rawCommand)
 		return
 	end
 
-	args = table.concat(args, ' ')
+	local message = table.concat(args, ' ')
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
@@ -87,8 +89,9 @@ RegisterCommand('forarp', function(source, args, rawCommand)
 		print('esx_rpchat: you can\'t use this command from rcon!')
 		return
 	end
+	
 
-	args = table.concat(args, ' ')
+	local message = table.concat(args, ' ')
 	local name = GetPlayerName(source)
 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
@@ -97,16 +100,12 @@ RegisterCommand('forarp', function(source, args, rawCommand)
 end, false)
 
 function GetCharacterName(source)
-	local result = MySQL.Sync.fetchAll('SELECT firstname, lastname FROM users WHERE identifier = @identifier', {
+	local result = MySQL.Sync.fetchAll('SELECT name FROM users WHERE identifier = @identifier', {
 		['@identifier'] = GetPlayerIdentifiers(source)[1]
 	})
 
-	if result[1] and result[1].firstname and result[1].lastname then
-		if Config.OnlyFirstname then
-			return result[1].firstname
-		else
-			return ('%s %s'):format(result[1].firstname, result[1].lastname)
-		end
+	if result[1] and result[1].name then
+		return ('%s'):format(result[1].name)
 	else
 		return GetPlayerName(source)
 	end
