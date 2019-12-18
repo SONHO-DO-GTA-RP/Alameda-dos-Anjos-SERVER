@@ -114,9 +114,14 @@ end)
 -- End money withdraw
 -- Find player vehicles
 function getPlayerVehicles(identifier)
-	
 	local vehicles = {}
 	local data = MySQL.Sync.fetchAll("SELECT * FROM owned_vehicles WHERE owner=@identifier",{['@identifier'] = identifier})	
+	['@type']   = 'Popular',
+	['@type']   = 'Esportivo',
+	['@type']   = 'Luxo',
+	['@type']   = 'Motos',
+	['@type']   = 'Pickups',
+	['@type']   = 'Muscle',
 	for _,v in pairs(data) do
 		local vehicle = json.decode(v.vehicle)
 		table.insert(vehicles, {id = v.id, plate = v.plate})

@@ -26,7 +26,7 @@ Config = {
 
 Config.Garages = {
 
-	Garagem_Praça = {	
+	Garagem = {	
 		Pos = {x=215.800, y=-810.057, z=29.727},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
