@@ -10,4 +10,5 @@ Locales ['br'] = {
   ['shop_menu_prompt'] = 'Pressione ~INPUT_CONTEXT~ para comprar armas.',
   ['shop_menu_item'] = 'R$%s',
   ['map_blip'] = 'Loja de Armas',
+  ['used_weapbox'] = 'Você abriu a caixa de armas'
 }

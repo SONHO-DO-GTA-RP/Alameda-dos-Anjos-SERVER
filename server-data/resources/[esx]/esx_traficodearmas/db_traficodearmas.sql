@@ -10,18 +10,18 @@ CREATE TABLE `weadealer` (
 );
 
 INSERT INTO `weadealer` (`zone`, `item`, `price`) VALUES
-	('Fabricante de Canos', 'pistolbarrel', 5000),
-	('Fabricante de Canos', 'smgbarrel', 15000),
-	('Fabricante de Canos', 'akbarrel', 30000),
-	('Fabricante de Canos', 'shotgunbarrel', 15000),
-	('Fabricante de Armas', 'pistolbody', 5000),
-	('Fabricante de Armas', 'akbody', 40000),
-	('Fabricante de Armas', 'smgbody', 15000),
-	('Fabricante de Armas', 'shotgunbody', 15000),
-	('Fabricante de Carregadores', 'pistolclip', 5000),
-	('Fabricante de Carregadores', 'smgclip', 15000),
-	('Fabricante de Carregadores', 'akclip', 30000),
-	('Fabricante de Carregadores', 'shotgunclip', 15000)
+	('Fabricante_de_Canos', 'pistolbarrel', 5000),
+	('Fabricante_de_Canos', 'smgbarrel', 15000),
+	('Fabricante_de_Canos', 'akbarrel', 30000),
+	('Fabricante_de_Canos', 'shotgunbarrel', 15000),
+	('Fabricante_de_Armas', 'pistolbody', 5000),
+	('Fabricante_de_Armas', 'akbody', 40000),
+	('Fabricante_de_Armas', 'smgbody', 15000),
+	('Fabricante_de_Armas', 'shotgunbody', 15000),
+	('Fabricante_de_Carregadores', 'pistolclip', 5000),
+	('Fabricante_de_Carregadores', 'smgclip', 15000),
+	('Fabricante_de_Carregadores', 'akclip', 30000),
+	('Fabricante_de_Carregadores', 'shotgunclip', 15000)
 ;
 
 INSERT INTO `addon_account` (name, label, shared) VALUES 
