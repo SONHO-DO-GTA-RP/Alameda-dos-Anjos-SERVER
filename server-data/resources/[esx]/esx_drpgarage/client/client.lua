@@ -113,9 +113,10 @@ function ListVehiclesMenu()
 
     ESX.TriggerServerCallback('eden_garage:getVehicles', function(vehicles)
         for _, v in pairs(vehicles) do
-            local hashVehicule = v.vehicle.model
-            local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)
-            local labelvehicle
+            local vehicles = MySQL.Sync.fetchAll('SELECT * FROM vehicles')
+            local vehicleName = GetDisplayNameFromVehicleModel(vehicles)
+
+			
 
             if (v.state) then
                 labelvehicle = _U('status_in_garage', GetLabelText(vehicleName))

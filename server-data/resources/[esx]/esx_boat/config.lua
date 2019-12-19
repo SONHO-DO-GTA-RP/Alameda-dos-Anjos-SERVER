@@ -74,6 +74,6 @@ Config.Zones = {
 }
 
 Config.Vehicles = {
-	{model = 'sr650fly', label = 'SEA 650FLY ', price = 20000000},
-	{model = 'yacht2', label = 'SEA L650 ', price = 15000000},
+	{model = 'sr650fly', label = 'SEA 650FLY (Random Color)', price = 20000000},
+	{model = 'yacht2', label = 'SEA L650 (Dark Blue)', price = 15000000},
 }
