@@ -34,6 +34,7 @@ Config.Recipes = {
 }
 
 -- Enable a shop to access the crafting menu
+
 Config.Shop = {
 	useShop = true,
 	shopCoordinates = { x=962.5, y=-1585.5, z=29.6 },
@@ -42,7 +43,6 @@ Config.Shop = {
 	zoneSize = { x = 2.5, y = 2.5, z = 1.5 },
 	zoneColor = { r = 255, g = 0, b = 0, a = 100 }
 }
-
 -- Enable crafting menu through a keyboard shortcut
 Config.Keyboard = {
 	useKeyboard = false,
