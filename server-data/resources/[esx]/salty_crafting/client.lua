@@ -77,7 +77,7 @@ if Config.Shop.useShop then
 	
 
 	
-	if PlayerData.job.name == 'mafia' and 'yakuza' then
+	if PlayerData.job and PlayerData.job.name == 'mafia' or 'yakuza' then
 	Citizen.CreateThread(function()
 		local blip = AddBlipForCoord(Config.Shop.shopCoordinates.x, Config.Shop.shopCoordinates.y, Config.Shop.shopCoordinates.z)
 		SetBlipSprite (blip, Config.Shop.shopBlipID)
@@ -88,8 +88,6 @@ if Config.Shop.useShop then
 		AddTextComponentString(Config.Shop.shopName)
 		EndTextCommandSetBlipName(blip)
 
-		else print ('Você não pertence a Máfia ou a Yakuza! De o fora daqui!')
-			
 		while true do
 			Citizen.Wait(250)
 			inDrawingRange = isPlayerInRange(GetEntityCoords(PlayerPedId()), Config.Shop.shopCoordinates, 100)
