@@ -98,10 +98,9 @@ ESX.RegisterUsableItem('PISTOL', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	xPlayer.removeInventoryItem('PISTOL', 1)
-	xPlayer.addWeapon (WEAPON_PISTOL, 42)
+	xPlayer.addWeapon ('WEAPON_PISTOL', 42)
 
 	cb(true)
 
 	TriggerClientEvent('esx:showNotification', source, _U('used_weapbox'))
-
 end)
