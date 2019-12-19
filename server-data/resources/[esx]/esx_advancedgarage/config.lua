@@ -24,8 +24,8 @@ Config.CarPoundPrice      = 300 -- Car Pound Price.
 Config.BoatPoundPrice     = 500 -- Boat Pound Price.
 Config.AircraftPoundPrice = 2500 -- Aircraft Pound Price.
 
-Config.PolicingPoundPrice  = 80 -- Policing Pound Price.
-Config.AmbulancePoundPrice = 80 -- Ambulance Pound Price.
+Config.PolicingPoundPrice  = 0 -- Policing Pound Price.
+Config.AmbulancePoundPrice = 0 -- Ambulance Pound Price.
 
 Config.UseCarGarages        = true -- Allows use of Car Garages.
 Config.UseBoatGarages       = true -- Allows use of Boat Garages.
@@ -176,38 +176,38 @@ Config.CarPounds = {
 -- End of Cars
 -- Start of Boats
 
-Config.BoatGarages = {
-	Garage_LSDock = {
-		GaragePoint = { x = -735.87, y = -1325.08, z = 0.6 },
-		SpawnPoint = { x = -718.87, y = -1320.18, z = -0.47477427124977, h = 45.0 },
-		DeletePoint = { x = -731.15, y = -1334.71, z = -0.47477427124977 }
-	},
-	Garage_SandyDock = {
-		GaragePoint = { x = 1333.2, y = 4269.92, z = 30.5 },
-		SpawnPoint = { x = 1334.61, y = 4264.68, z = 29.86, h = 87.0 },
-		DeletePoint = { x = 1323.73, y = 4269.94, z = 29.86 }
-	},
-	Garage_PaletoDock = {
-		GaragePoint = { x = -283.74, y = 6629.51, z = 6.3 },
-		SpawnPoint = { x = -290.46, y = 6622.72, z = -0.47477427124977, h = 52.0 },
-		DeletePoint = { x = -304.66, y = 6607.36, z = -0.47477427124977 }
-	}
-}
+-- Config.BoatGarages = {
+-- 	Garage_LSDock = {
+-- 		GaragePoint = { x = -735.87, y = -1325.08, z = 0.6 },
+-- 		SpawnPoint = { x = -718.87, y = -1320.18, z = -0.47477427124977, h = 45.0 },
+-- 		DeletePoint = { x = -731.15, y = -1334.71, z = -0.47477427124977 }
+-- 	},
+-- 	Garage_SandyDock = {
+-- 		GaragePoint = { x = 1333.2, y = 4269.92, z = 30.5 },
+-- 		SpawnPoint = { x = 1334.61, y = 4264.68, z = 29.86, h = 87.0 },
+-- 		DeletePoint = { x = 1323.73, y = 4269.94, z = 29.86 }
+-- 	},
+-- 	Garage_PaletoDock = {
+-- 		GaragePoint = { x = -283.74, y = 6629.51, z = 6.3 },
+-- 		SpawnPoint = { x = -290.46, y = 6622.72, z = -0.47477427124977, h = 52.0 },
+-- 		DeletePoint = { x = -304.66, y = 6607.36, z = -0.47477427124977 }
+-- 	}
+-- }
 
-Config.BoatPounds = {
-	Pound_LSDock = {
-		PoundPoint = { x = -738.67, y = -1400.43, z = 4.0 },
-		SpawnPoint = { x = -738.33, y = -1381.51, z = 0.12, h = 137.85 }
-	},
-	Pound_SandyDock = {
-		PoundPoint = { x = 1299.36, y = 4217.93, z = 32.91 },
-		SpawnPoint = { x = 1294.35, y = 4226.31, z = 29.86, h = 345.0 }
-	},
-	Pound_PaletoDock = {
-		PoundPoint = { x = -270.2, y = 6642.43, z = 6.36 },
-		SpawnPoint = { x = -290.38, y = 6638.54, z = -0.47477427124977, h = 130.0 }
-	}
-}
+-- Config.BoatPounds = {
+-- 	Pound_LSDock = {
+-- 		PoundPoint = { x = -738.67, y = -1400.43, z = 4.0 },
+-- 		SpawnPoint = { x = -738.33, y = -1381.51, z = 0.12, h = 137.85 }
+-- 	},
+-- 	Pound_SandyDock = {
+-- 		PoundPoint = { x = 1299.36, y = 4217.93, z = 32.91 },
+-- 		SpawnPoint = { x = 1294.35, y = 4226.31, z = 29.86, h = 345.0 }
+-- 	},
+-- 	Pound_PaletoDock = {
+-- 		PoundPoint = { x = -270.2, y = 6642.43, z = 6.36 },
+-- 		SpawnPoint = { x = -290.38, y = 6638.54, z = -0.47477427124977, h = 130.0 }
+-- 	}
+-- }
 
 -- End of Boats
 -- Start of Aircrafts
