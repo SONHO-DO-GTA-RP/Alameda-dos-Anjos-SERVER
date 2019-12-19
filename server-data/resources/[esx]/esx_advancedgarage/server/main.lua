@@ -103,9 +103,6 @@ ESX.RegisterServerCallback('esx_advancedgarage:getOwnedCars', function(source, c
 	
 	if Config.DontShowPoundCarsInGarage == true then
 		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job = @job AND `stored` = @stored', {
-
-		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND `stored` = @stored', {
-
 			['@owner']  = GetPlayerIdentifiers(source)[1],
 			['@Type']   = 'car',
 			['@job']    = '',
@@ -119,8 +116,6 @@ ESX.RegisterServerCallback('esx_advancedgarage:getOwnedCars', function(source, c
 		end)
 	else
 		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job = @job', {
-
-		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type', {
 			['@owner']  = GetPlayerIdentifiers(source)[1],
 			['@Type']   = 'car',
 			['@job']    = ''
