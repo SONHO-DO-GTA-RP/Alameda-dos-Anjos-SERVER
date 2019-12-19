@@ -54,5 +54,5 @@ INSERT INTO `weashops` (`zone`, `item`, `price`) VALUES
 	-- ('BlackWeashop', 'WEAPON_HEAVYSNIPER', 30000),
 	-- ('BlackWeashop', 'WEAPON_MINIGUN', 45000),
 	-- ('BlackWeashop', 'WEAPON_RAILGUN', 50000),
-	-- ('BlackWeashop', 'WEAPON_STICKYBOMB', 500)
+	-- ('BlackWeashop', 'WEAPON_STICKYBOMB', 500),
 ;

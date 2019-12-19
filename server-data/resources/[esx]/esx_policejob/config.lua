@@ -89,7 +89,7 @@ Config.AuthorizedWeapons = {
 
 	officer = {
 		{ weapon = 'WEAPON_APPISTOL', components = { 0, 0, 1000, 4000, nil }, price = 10000 },
-		{ weapon = 'WEAPON_ADVANCEDRIFLE', components = { 0, 6000, 1000, 4000, 8000, nil }, price = 50000 },
+		{ weapon = 'WEAPON_SMG', price = 50000 },
 		{ weapon = 'WEAPON_NIGHTSTICK', price = 0 },
 		{ weapon = 'WEAPON_STUNGUN', price = 500 },
 		{ weapon = 'WEAPON_FLASHLIGHT', price = 0 }
@@ -97,8 +97,8 @@ Config.AuthorizedWeapons = {
 
 	sergeant = {
 		{ weapon = 'WEAPON_APPISTOL', components = { 0, 0, 1000, 4000, nil }, price = 10000 },
-		{ weapon = 'WEAPON_ADVANCEDRIFLE', components = { 0, 6000, 1000, 4000, 8000, nil }, price = 50000 },
-		{ weapon = 'WEAPON_PUMPSHOTGUN', components = { 2000, 6000, nil }, price = 70000 },
+		{ weapon = 'WEAPON_SMG', price = 50000 },
+		{ weapon = 'WEAPON_PUMPSHOTGUN', components = { 2000, 6000, nil }, price = 50000 },
 		{ weapon = 'WEAPON_NIGHTSTICK', price = 0 },
 		{ weapon = 'WEAPON_STUNGUN', price = 500 },
 		{ weapon = 'WEAPON_FLASHLIGHT', price = 0 }
@@ -106,8 +106,9 @@ Config.AuthorizedWeapons = {
 
 	intendent = {
 		{ weapon = 'WEAPON_APPISTOL', components = { 0, 0, 1000, 4000, nil }, price = 10000 },
-		{ weapon = 'WEAPON_ADVANCEDRIFLE', components = { 0, 6000, 1000, 4000, 8000, nil }, price = 50000 },
-		{ weapon = 'WEAPON_PUMPSHOTGUN', components = { 2000, 6000, nil }, price = 70000 },
+		{ weapon = 'WEAPON_ADVANCEDRIFLE', components = { 0, 6000, 1000, 4000, 8000, nil }, price = 100000 },
+		{ weapon = 'WEAPON_PUMPSHOTGUN', components = { 2000, 6000, nil }, price = 50000 },
+		{ weapon = 'WEAPON_SMG', price = 50000 },
 		{ weapon = 'WEAPON_NIGHTSTICK', price = 0 },
 		{ weapon = 'WEAPON_STUNGUN', price = 500 },
 		{ weapon = 'WEAPON_FLASHLIGHT', price = 0 }
@@ -116,7 +117,8 @@ Config.AuthorizedWeapons = {
 	lieutenant = {
 		{ weapon = 'WEAPON_APPISTOL', components = { 0, 0, 1000, 4000, nil }, price = 10000 },
 		{ weapon = 'WEAPON_ADVANCEDRIFLE', components = { 0, 6000, 1000, 4000, 8000, nil }, price = 50000 },
-		{ weapon = 'WEAPON_PUMPSHOTGUN', components = { 2000, 6000, nil }, price = 70000 },
+		{ weapon = 'WEAPON_SMG', price = 50000 },
+		{ weapon = 'WEAPON_PUMPSHOTGUN', components = { 2000, 6000, nil }, price = 50000 },
 		{ weapon = 'WEAPON_NIGHTSTICK', price = 0 },
 		{ weapon = 'WEAPON_STUNGUN', price = 500 },
 		{ weapon = 'WEAPON_FLASHLIGHT', price = 0 }
