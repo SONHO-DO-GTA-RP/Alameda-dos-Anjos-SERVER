@@ -59,16 +59,17 @@ end
 
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
-myJob = Playerdata.job.name
+myJob = Playerdata.job
 end)
 
 RegisterServerEvent('salty_crafting:craftItem')
 
 AddEventHandler('salty_crafting:craftItem', function(data, cb)
 	if myJob ~= 'mafia' or myJob ~= 'yakuza' then
-		TriggerClientEvent('esx:showNotification', _source, 'Você nao e da Mafia ou Yakuza, de o fora daqui!') then
-return
-end)
+		TriggerClientEvent('esx:showNotification', _source, 'Você nao e da Mafia ou Yakuza, de o fora daqui!') 
+	then 
+	return
+	end)
 
 AddEventHandler('salty_crafting:craftItem', function(ingredients)
 	local _source = source
