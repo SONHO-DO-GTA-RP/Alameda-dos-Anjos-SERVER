@@ -35,12 +35,7 @@ Config.Recipes = {
 
 -- Enable a shop to access the crafting menu
 Config.Shop = {
-	if PlayerData.job.name == 'mafia' and 'yakuza' then
 	useShop = true
-	else print ('Você não pertence a Máfia ou a Yakuza! De o fora daqui!')
-	useShop = false
-	end
-
 	shopCoordinates = { x=962.5, y=-1585.5, z=29.6 },
 	shopName = "Fabrica de Armas",
 	shopBlipID = 556,
