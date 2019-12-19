@@ -8,17 +8,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
-	myJob = job.name
-end)
-
-AddEventHandler('salty_crafting:openMenu', function(zone)
-	if myJob ~= 'mafia' or myJob ~= 'yakuza' then
-		TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
-		return
-end
-
 function isWeapon(item)
 	local weaponList = ESX.GetWeaponList()
 	for i=1, #weaponList, 1 do
@@ -55,6 +44,17 @@ AddEventHandler('salty_crafting:openMenu', function(playerInventory)
 	display = true
 end)
 
+		RegisterNetEvent('esx:setJob')
+		AddEventHandler('esx:setJob', function(job)
+		myJob = job.name
+		end)
+
+		AddEventHandler('craftItemNUI', function(data, cb)
+		if myJob ~= 'mafia' or myJob ~= 'yakuza' then
+		TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
+		return
+		end
+
 RegisterNUICallback('craftItemNUI', function(data, cb)
 	craftItem(data)
 end)
@@ -85,6 +85,8 @@ if Config.Shop.useShop then
 		return (Vdist2(coords1.x, coords1.y, coords1.z, coords2.x, coords2.y, coords2.z) < range)
 	end
 	
+	
+
 	Citizen.CreateThread(function()
 		local blip = AddBlipForCoord(Config.Shop.shopCoordinates.x, Config.Shop.shopCoordinates.y, Config.Shop.shopCoordinates.z)
 		SetBlipSprite (blip, Config.Shop.shopBlipID)
@@ -94,7 +96,6 @@ if Config.Shop.useShop then
 		BeginTextCommandSetBlipName("STRING")
 		AddTextComponentString(Config.Shop.shopName)
 		EndTextCommandSetBlipName(blip)
-		
 		while true do
 			Citizen.Wait(250)
 			inDrawingRange = isPlayerInRange(GetEntityCoords(PlayerPedId()), Config.Shop.shopCoordinates, 100)
