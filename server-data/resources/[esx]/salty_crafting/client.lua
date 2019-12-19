@@ -46,7 +46,7 @@ end)
 
 		RegisterNetEvent('esx:setJob')
 		AddEventHandler('esx:setJob', function(job)
-		myJob = Playerdata.job
+		myJob = Playerdata.job.name
 		end)
 
 		AddEventHandler('craftItemNUI', function(data, cb)
