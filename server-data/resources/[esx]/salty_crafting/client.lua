@@ -23,8 +23,9 @@ AddEventHandler('esx:setJob', function(job)
 	myJob = job.name
 end)
 
-AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
+AddEventHandler('salty_crafting:openMenu', function(zone)
 	if myJob ~= 'mafia' or myJob ~= 'yakuza' then
+		TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
 		return
 
 local function craftItem(ingredients)
