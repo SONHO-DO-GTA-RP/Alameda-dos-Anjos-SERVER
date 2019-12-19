@@ -46,5 +46,5 @@ Config.Shop = {
 -- Enable crafting menu through a keyboard shortcut
 Config.Keyboard = {
 	useKeyboard = false,
-	keyCode = 303
+	keyCode = 303 
 }
