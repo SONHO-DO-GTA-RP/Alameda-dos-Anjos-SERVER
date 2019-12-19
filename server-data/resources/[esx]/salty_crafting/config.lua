@@ -35,7 +35,7 @@ Config.Recipes = {
 
 -- Enable a shop to access the crafting menu
 Config.Shop = {
-	useShop = true
+	useShop = true,
 	shopCoordinates = { x=962.5, y=-1585.5, z=29.6 },
 	shopName = "Fabrica de Armas",
 	shopBlipID = 556,
