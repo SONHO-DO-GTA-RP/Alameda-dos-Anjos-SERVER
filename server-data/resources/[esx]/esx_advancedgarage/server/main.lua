@@ -102,9 +102,10 @@ ESX.RegisterServerCallback('esx_advancedgarage:getOwnedCars', function(source, c
 	local ownedCars = {}
 	
 	if Config.DontShowPoundCarsInGarage == true then
-		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job IS NULL AND stored = @stored', {
+		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job = @job AND `stored` = @stored', {
 			['@owner']  = GetPlayerIdentifiers(source)[1],
 			['@Type']   = 'car',
+			['@job']    = '',
 			['@stored'] = true
 		}, function(data)
 			for _,v in pairs(data) do
@@ -114,9 +115,10 @@ ESX.RegisterServerCallback('esx_advancedgarage:getOwnedCars', function(source, c
 			cb(ownedCars)
 		end)
 	else
-		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job IS NULL', {
+		MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND Type = @Type AND job = @job', {
 			['@owner']  = GetPlayerIdentifiers(source)[1],
 			['@Type']   = 'car',
+			['@job']    = ''
 		}, function(data)
 			for _,v in pairs(data) do
 				local vehicle = json.decode(v.vehicle)
