@@ -78,10 +78,10 @@ AddEventHandler('esx_drugs:processCannabis', function()
 
 			if not xPlayer.canCarryItem('marijuana', 1) then
 				xPlayer.showNotification(_U('weed_processingfull'))
-			elseif xCannabis.count < 3 then
+			elseif xCannabis.count < 2 then
 				xPlayer.showNotification(_U('weed_processingenough'))
 			else
-				xPlayer.removeInventoryItem('cannabis', 3)
+				xPlayer.removeInventoryItem('cannabis', 2)
 				xPlayer.addInventoryItem('marijuana', 1)
 
 				xPlayer.showNotification(_U('weed_processed'))
