@@ -57,19 +57,6 @@ function itemLabel(name, inventory)
 end
 
 
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
-myJob = job.name
-end)
-
-RegisterServerEvent('salty_crafting:craftItem')
-
-AddEventHandler('salty_crafting:craftItem', function(ingredients)
-	if myJob not 'mafia' or myJob not 'yakuza' then
-		TriggerClientEvent('esx:showNotification', _source, 'Você nao e da Mafia ou Yakuza, de o fora daqui!') 
-	then 
-	return
-	end)
 
 AddEventHandler('salty_crafting:craftItem', function(ingredients)
 	local _source = source

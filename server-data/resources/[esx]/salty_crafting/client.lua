@@ -44,17 +44,6 @@ AddEventHandler('salty_crafting:openMenu', function(playerInventory)
 	display = true
 end)
 
-		RegisterNetEvent('esx:setJob')
-		AddEventHandler('esx:setJob', function(job)
-		myJob = Playerdata.job.name
-		end)
-
-		AddEventHandler('craftItemNUI', function(data, cb)
-		if myJob ~= 'mafia' or myJob ~= 'yakuza' then
-		TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
-		return
-		end)
-
 RegisterNUICallback('craftItemNUI', function(data, cb)
 	craftItem(data)
 end)
