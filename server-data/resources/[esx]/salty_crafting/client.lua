@@ -23,7 +23,6 @@ local function craftItem(ingredients)
 	for name, count in pairs(ingredients) do
 		if count > 0 then
 			table.insert(ingredientsPrepped, { item = name , quantity = count})
-		else print ('Sem partes suficientes')
 		end
 	end
 	TriggerServerEvent('salty_crafting:craftItem', ingredientsPrepped)
@@ -75,9 +74,6 @@ if Config.Shop.useShop then
 		return (Vdist2(coords1.x, coords1.y, coords1.z, coords2.x, coords2.y, coords2.z) < range)
 	end
 	
-
-	
-	if PlayerData.job and PlayerData.job.name == 'mafia' or 'yakuza' then
 	Citizen.CreateThread(function()
 		local blip = AddBlipForCoord(Config.Shop.shopCoordinates.x, Config.Shop.shopCoordinates.y, Config.Shop.shopCoordinates.z)
 		SetBlipSprite (blip, Config.Shop.shopBlipID)
@@ -86,13 +82,13 @@ if Config.Shop.useShop then
 		SetBlipAsShortRange(blip, true)
 		BeginTextCommandSetBlipName("STRING")
 		AddTextComponentString(Config.Shop.shopName)
-		EndTextCommandSetBlipName(blip)		
+		EndTextCommandSetBlipName(blip)
+		
 		while true do
 			Citizen.Wait(250)
 			inDrawingRange = isPlayerInRange(GetEntityCoords(PlayerPedId()), Config.Shop.shopCoordinates, 100)
 		end
 	end)
-end
 		
 	Citizen.CreateThread(function()		
 		while true do
