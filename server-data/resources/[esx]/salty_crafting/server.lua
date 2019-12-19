@@ -56,7 +56,20 @@ function itemLabel(name, inventory)
 	return "unknown item"
 end
 
+
+RegisterNetEvent('esx:setJob')
+AddEventHandler('esx:setJob', function(job)
+myJob = Playerdata.job.name
+end)
+
 RegisterServerEvent('salty_crafting:craftItem')
+
+AddEventHandler('craftItemNUI', function(data, cb)
+if myJob ~= 'mafia' or myJob ~= 'yakuza' then
+TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
+return
+end)
+
 AddEventHandler('salty_crafting:craftItem', function(ingredients)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
