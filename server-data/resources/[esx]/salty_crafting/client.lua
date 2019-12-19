@@ -18,6 +18,15 @@ function isWeapon(item)
 	return false
 end
 
+RegisterNetEvent('esx:setJob')
+AddEventHandler('esx:setJob', function(job)
+	myJob = job.name
+end)
+
+AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
+	if myJob ~= 'mafia' or myJob ~= 'yakuza' then
+		return
+
 local function craftItem(ingredients)
 	local ingredientsPrepped = {}
 	for name, count in pairs(ingredients) do
