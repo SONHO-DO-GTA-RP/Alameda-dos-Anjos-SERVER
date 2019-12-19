@@ -98,6 +98,6 @@ ESX.RegisterUsableItem('PISTOL', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	xPlayer.removeInventoryItem('PISTOL', 1)
-
-	TriggerClientEvent(xPlayer.addWeapon (WEAPON_PISTOL, 42)))
+	xPlayer.addWeapon (WEAPON_PISTOL, 42)))
+	
 end)
