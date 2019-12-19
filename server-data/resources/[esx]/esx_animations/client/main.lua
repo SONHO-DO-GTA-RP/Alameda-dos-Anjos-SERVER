@@ -37,8 +37,8 @@ function OpenAnimationsMenu()
 	end
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'animations', {
-		title    = 'Animations',
-		align    = 'top-left',
+		title    = 'Animações',
+		align    = 'left',
 		elements = elements
 	}, function(data, menu)
 		OpenAnimationsSubMenu(data.current.value)
@@ -70,7 +70,7 @@ function OpenAnimationsSubMenu(menu)
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'animations_sub', {
 		title    = title,
-		align    = 'top-left',
+		align    = 'left',
 		elements = elements
 	}, function(data, menu)
 		local type = data.current.type
