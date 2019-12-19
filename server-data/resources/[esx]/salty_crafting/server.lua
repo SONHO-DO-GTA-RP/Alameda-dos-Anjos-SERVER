@@ -64,7 +64,7 @@ end)
 
 RegisterServerEvent('salty_crafting:craftItem')
 
-AddEventHandler('craftItemNUI', function(data, cb)
+AddEventHandler('salty_crafting:craftItem', function(data, cb)
 if myJob ~= 'mafia' or myJob ~= 'yakuza' then
 TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
 return
