@@ -115,7 +115,7 @@ function ListVehiclesMenu()
         for _, v in pairs(vehicles) do
             local hashVehicule = v.vehicle.model
             local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)
-            local vehicles = MySQL.Sync.fetchAll('SELECT * FROM vehicles')
+            local labelvehicle
 
             if (v.state) then
                 labelvehicle = _U('status_in_garage', GetLabelText(vehicleName))
