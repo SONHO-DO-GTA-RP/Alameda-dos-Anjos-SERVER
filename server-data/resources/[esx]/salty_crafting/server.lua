@@ -1,6 +1,4 @@
 ESX = nil
-local myJob 					= nil
-
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 RegisterServerEvent('salty_crafting:getPlayerInventory')
@@ -61,12 +59,13 @@ end
 
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
-myJob = Playerdata.job
+myJob = job.name
 end)
 
 RegisterServerEvent('salty_crafting:craftItem')
-AddEventHandler('salty_crafting:craftItem', function(data, cb)
-	if myJob ~= 'mafia' or myJob ~= 'yakuza' then
+
+AddEventHandler('salty_crafting:craftItem', function(ingredients)
+	if myJob not 'mafia' or myJob not 'yakuza' then
 		TriggerClientEvent('esx:showNotification', _source, 'Você nao e da Mafia ou Yakuza, de o fora daqui!') 
 	then 
 	return
