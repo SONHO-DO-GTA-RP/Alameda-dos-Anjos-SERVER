@@ -28,12 +28,11 @@ ESX.RegisterServerCallback('esx_boat:buyBoat', function(source, cb, vehicleProps
 		if xPlayer.getMoney() >= price then
 			xPlayer.removeMoney(price)
 
-			MySQL.Async.execute('INSERT INTO owned_vehicles (owner, plate, vehicle, type, stored) VALUES (@owner, @plate, @vehicle, @type, @stored)', {
+			MySQL.Async.execute('INSERT INTO owned_vehicles (owner, plate, vehicle, type) VALUES (@owner, @plate, @vehicle, @type)', {
 				['@owner']   = xPlayer.identifier,
 				['@plate']   = vehicleProps.plate,
 				['@vehicle'] = json.encode(vehicleProps),
-				['@type']    = 'boat',
-				['@stored'] = true
+				['@type']    = 'boat'
 			}, function(rowsChanged)
 				cb(true)
 			end)
