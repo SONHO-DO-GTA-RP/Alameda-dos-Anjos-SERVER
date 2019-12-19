@@ -53,7 +53,7 @@ end)
 		if myJob ~= 'mafia' or myJob ~= 'yakuza' then
 		TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
 		return
-		end
+		end)
 
 RegisterNUICallback('craftItemNUI', function(data, cb)
 	craftItem(data)
