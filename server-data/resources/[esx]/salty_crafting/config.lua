@@ -12,30 +12,30 @@ Config.Recipes = {
 	
 	-- Can be a weapon, must follow this format
 	["PISTOL"] = { 
-		{item = "pistolbarrel", quantity = 1}, 
-		{item = "pistolbody", quantity = 1},
-		{item = "pistolclip", quantity = 1}
+		{item = "pistolbarrel", quantity = 1, remove = true}, 
+		{item = "pistolbody", quantity = 1, remove = true},
+		{item = "pistolclip", quantity = 1, remove = true}
 	},
 	["AK"] = { 
-		{item = "akbarrel", quantity = 1}, 
-		{item = "akbody", quantity = 1},
-		{item = "akclip", quantity = 1}
+		{item = "akbarrel", quantity = 1, remove = true}, 
+		{item = "akbody", quantity = 1, remove = true},
+		{item = "akclip", quantity = 1, remove = true}
 	},
 	["SMG"] = { 
-		{item = "smgbarrel", quantity = 1}, 
-		{item = "smgbody", quantity = 1},
-		{item = "smgclip", quantity = 1}
+		{item = "smgbarrel", quantity = 1, remove = true}, 
+		{item = "smgbody", quantity = 1, remove = true},
+		{item = "smgclip", quantity = 1, remove = true}
 	},
 	["SHOTGUN"] = { 
-		{item = "shotgunbarrel", quantity = 1}, 
-		{item = "shotgunbody", quantity = 1},
-		{item = "shotgunclip", quantity = 1}
+		{item = "shotgunbarrel", quantity = 1, remove = true}, 
+		{item = "shotgunbody", quantity = 1, remove = true},
+		{item = "shotgunclip", quantity = 1, remove = true}
 	}
 }
 
 -- Enable a shop to access the crafting menu
 Config.Shop = {
-	useShop = false,
+	useShop = true,
 	shopCoordinates = { x=962.5, y=-1585.5, z=29.6 },
 	shopName = "Fabrica de Armas",
 	shopBlipID = 556,
@@ -45,6 +45,6 @@ Config.Shop = {
 
 -- Enable crafting menu through a keyboard shortcut
 Config.Keyboard = {
-	useKeyboard = true,
+	useKeyboard = false,
 	keyCode = 303
 }
