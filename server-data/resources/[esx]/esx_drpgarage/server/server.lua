@@ -16,8 +16,9 @@ ESX.RegisterServerCallback('eden_garage:getVehicles', function(source, cb)
     local xPlayer = ESX.GetPlayerFromId(_source)
     local vehicules = {}
 
-    MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner=@identifier', {
-        ['@identifier'] = xPlayer.getIdentifier()
+    MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner=@identifier AND type = @type', {
+        ['@identifier'] = xPlayer.getIdentifier(),
+		['@type']   = 'car'
     }, function(data)
         for _, v in pairs(data) do
             local vehicle = json.decode(v.vehicle)
