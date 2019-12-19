@@ -8,16 +8,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
-	myJob = job.name
-end)
-
-AddEventHandler('salty_crafting:openMenu', function(zone)
-	if myJob ~= 'mafia' or myJob ~= 'yakuza' then
-		TriggerClientEvent('esx:showNotification', _source, 'Você não é da Mafia ou Yakuza, dê o fora daqui!')
-		return
-end
 
 function isWeapon(item)
 	local weaponList = ESX.GetWeaponList()
