@@ -33,8 +33,9 @@ html, body {
 	height: 480px;
 	color: #212121;
 	position: absolute;
-	right: 50px;
-	bottom: 0;
+	left: 40;
+  	top : 50%;
+  	transform: translate(0, -50%); 
 	overflow: hidden;
 	cursor: default;
 	display: none;
