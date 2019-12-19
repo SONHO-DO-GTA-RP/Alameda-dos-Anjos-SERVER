@@ -58,6 +58,7 @@ end
 
 
 
+RegisterServerEvent('salty_crafting:craftItem')
 AddEventHandler('salty_crafting:craftItem', function(ingredients)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
