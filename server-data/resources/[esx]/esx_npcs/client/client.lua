@@ -28,9 +28,9 @@
 ]]--
 
 local coordonate = {
-    {247.0939, -17.0465, 73.7618,"Vendedor de Carregadores",27.0335,0x6BD9B68C,"a_m_m_hasjew_01"},
-    {-1127.85, 2692.988, 18.800,"Vendedor de Armas",91,9688,0xF161D212,"s_m_m_highsec_01"},
-    {-679.1017, -923.4839, 23.077,"Vendedor de Canos",30.6870,0x2930C1AB,"s_m_m_highsec_02"}
+    {247.0939,-17.0465,73.7618,"Vendedor de Carregadores",27.0335,0x6BD9B68C,"a_m_m_hasjew_01"},
+    {-1127.85,2692.988,18.800,"Vendedor de Armas",91,9688,0xF161D212,"s_m_m_highsec_01"},
+    {-679.1017,-923.4839,23.077,"Vendedor de Canos",30.6870,0x2930C1AB,"s_m_m_highsec_02"}
 }
 
 Citizen.CreateThread(function()
