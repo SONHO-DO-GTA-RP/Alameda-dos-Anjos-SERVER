@@ -23,6 +23,7 @@ local function craftItem(ingredients)
 	for name, count in pairs(ingredients) do
 		if count > 0 then
 			table.insert(ingredientsPrepped, { item = name , quantity = count})
+		else print ('Sem partes suficientes')
 		end
 	end
 	TriggerServerEvent('salty_crafting:craftItem', ingredientsPrepped)
