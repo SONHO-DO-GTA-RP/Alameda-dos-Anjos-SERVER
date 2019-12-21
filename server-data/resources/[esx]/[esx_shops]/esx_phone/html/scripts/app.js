@@ -396,7 +396,7 @@
 	});
 	
 	$('#btn-head-new-message').click(function() {
-		showNewMessage('', 'Nova messagem');
+		showNewMessage('', 'Nova mensagem');
 	});
 	
 	$('#btn-head-new-contact').click(function() {
