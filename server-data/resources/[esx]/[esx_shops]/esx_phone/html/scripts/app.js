@@ -312,8 +312,8 @@
 		$('.phone-icon').unbind('click');
 
 		$('#phone .menu .home').html(
-			'<li class="phone-icon" id="phone-icon-rep">Repertoire</li>' +
-			'<li class="phone-icon" id="phone-icon-msg">Messages</li>'
+			'<li class="phone-icon" id="phone-icon-rep">Contatos</li>' +
+			'<li class="phone-icon" id="phone-icon-msg">Menssages</li>'
 		);
 
 		for(let i=0; i<specialContacts.length; i++){
