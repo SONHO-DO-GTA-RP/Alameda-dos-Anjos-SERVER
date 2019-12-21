@@ -75,28 +75,7 @@ AddEventHandler('esx_truck_inventory:getInventory', function(plate)
 end)
 
 
-RegisterServerEvent('esx_truck_inventory:removeInventoryItem')
-AddEventHandler('esx_truck_inventory:removeInventoryItem', function(plate, item, count)
-  local _source = source
-  MySQL.Async.fetchAll(
-    'UPDATE `truck_inventory` SET `count`= `count` - @qty WHERE `plate` = @plate AND `item`= @item AND owned = @owned',
-    {
-      ['@plate'] = plate,
-      ['@qty'] = count,
-      ['@item'] = item,
-	  ['@owned'] = true
-    },
-    function(result)
-      local xPlayer  = ESX.GetPlayerFromId(_source)
-      --if xPlayer ~= nil then
-		if xPlayer.canCarryItem(itemName, amount) then
-        xPlayer.addInventoryItem(item, count)
-      end
-    end)
-end)
---if xPlayer.canCarryItem(itemName, amount) then
-			--xPlayer.removeMoney(price)
-			--xPlayer.addInventoryItem(itemName, amount)
+
 
 RegisterServerEvent('esx_truck_inventory:addInventoryItem')
 AddEventHandler('esx_truck_inventory:addInventoryItem', function(type, model, plate, item, count, name,ownedV)
@@ -115,3 +94,22 @@ AddEventHandler('esx_truck_inventory:addInventoryItem', function(type, model, pl
       xPlayer.removeInventoryItem(item, count)
     end)
 end)
+
+RegisterServerEvent('esx_truck_inventory:removeInventoryItem')
+AddEventHandler('esx_truck_inventory:removeInventoryItem', function(plate, item, count)
+  local _source = source
+  MySQL.Async.fetchAll(
+    'UPDATE `truck_inventory` SET `count`= `count` - @qty WHERE `plate` = @plate AND `item`= @item',
+    {
+      ['@plate'] = plate,
+      ['@qty'] = count,
+      ['@item'] = item
+    },
+    function(result)
+      local xPlayer  = ESX.GetPlayerFromId(_source)
+        xPlayer.addInventoryItem(item, count)   
+    end)
+end)
+--if xPlayer.canCarryItem(itemName, amount) then
+			--xPlayer.removeMoney(price)
+			--xPlayer.addInventoryItem(itemName, amount)
