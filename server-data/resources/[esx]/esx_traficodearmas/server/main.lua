@@ -5,7 +5,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 MySQL.ready(function()
 
-	MySQL.Async.fetchAll('SELECT * FROM weashops', {}, function(result)
+	MySQL.Async.fetchAll('SELECT * FROM weadealer', {}, function(result)
 		for i=1, #result, 1 do
 			if shopItems[result[i].zone] == nil then
 				shopItems[result[i].zone] = {}
@@ -18,16 +18,16 @@ MySQL.ready(function()
 			})
 		end
 
-		TriggerClientEvent('esx_weaponshop:sendShop', -1, shopItems)
+		TriggerClientEvent('esx_traficodearmas:sendShop', -1, shopItems)
 	end)
 
 end)
 
-ESX.RegisterServerCallback('esx_weaponshop:getShop', function(source, cb)
+ESX.RegisterServerCallback('esx_traficodearmas:getShop', function(source, cb)
 	cb(shopItems)
 end)
 
-ESX.RegisterServerCallback('esx_weaponshop:buyLicense', function(source, cb)
+ESX.RegisterServerCallback('esx_traficodearmas:buyLicense', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	if xPlayer.getMoney() >= Config.LicensePrice then
@@ -42,12 +42,12 @@ ESX.RegisterServerCallback('esx_weaponshop:buyLicense', function(source, cb)
 	end
 end)
 
-ESX.RegisterServerCallback('esx_weaponshop:buyWeapon', function(source, cb, weaponName, zone)
+ESX.RegisterServerCallback('esx_traficodearmas:buyWeapon', function(source, cb, weaponName, zone)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local price = GetPrice(weaponName, zone)
 
-	if price == 0 then
-		print(('esx_weaponshop: %s attempted to buy a unknown weapon!'):format(xPlayer.identifier))
+	if price == 0 then 
+		print(('esx_traficodearmas:%s attempted to buy a unknown weapon!'):format(xPlayer.identifier))
 		cb(false)
 	else
 		if xPlayer.hasWeapon(weaponName) then
@@ -80,7 +80,7 @@ ESX.RegisterServerCallback('esx_weaponshop:buyWeapon', function(source, cb, weap
 end)
 
 function GetPrice(weaponName, zone)
-	local price = MySQL.Sync.fetchScalar('SELECT price FROM weashops WHERE zone = @zone AND item = @item', {
+	local price = MySQL.Sync.fetchScalar('SELECT price FROM weadealer WHERE zone = @zone AND item = @item', {
 		['@zone'] = zone,
 		['@item'] = weaponName
 	})
