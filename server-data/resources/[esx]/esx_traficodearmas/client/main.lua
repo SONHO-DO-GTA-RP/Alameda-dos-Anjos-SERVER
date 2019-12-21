@@ -12,15 +12,15 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 	end
 
-	ESX.TriggerServerCallback('esx_weaponshop:getShop', function(shopItems)
+	ESX.TriggerServerCallback('esx_traficodearmas:getShop', function(shopItems)
 		for k,v in pairs(shopItems) do
 			Config.Zones[k].Items = v
 		end
 	end)
 end)
 
-RegisterNetEvent('esx_weaponshop:sendShop')
-AddEventHandler('esx_weaponshop:sendShop', function(shopItems)
+RegisterNetEvent('esx_traficodearmas:sendShop')
+AddEventHandler('esx_traficodearmas:sendShop', function(shopItems)
 	for k,v in pairs(shopItems) do
 		Config.Zones[k].Items = v
 	end
@@ -38,7 +38,7 @@ function OpenBuyLicenseMenu(zone)
 		}
 	}, function(data, menu)
 		if data.current.value == 'yes' then
-			ESX.TriggerServerCallback('esx_weaponshop:buyLicense', function(bought)
+			ESX.TriggerServerCallback('esx_traficodearmas:buyLicense', function(bought)
 				if bought then
 					menu.close()
 					OpenShopMenu(zone)
@@ -72,7 +72,7 @@ function OpenShopMenu(zone)
 		align = 'top-left',
 		elements = elements
 	}, function(data, menu)
-		ESX.TriggerServerCallback('esx_weaponshop:buyWeapon', function(bought)
+		ESX.TriggerServerCallback('esx_traficodearmas:buyWeapon', function(bought)
 			if bought then
 				DisplayBoughtScaleform(data.current.weaponName, data.current.price)
 			else
@@ -118,7 +118,7 @@ function DisplayBoughtScaleform(weaponName, price)
 	end)
 end
 
-AddEventHandler('esx_weaponshop:hasEnteredMarker', function(zone)
+AddEventHandler('esx_traficodearmas:hasEnteredMarker', function(zone)
 	if zone == 'GunShop' or zone == 'BlackWeashop' then
 		CurrentAction     = 'shop_menu'
 		CurrentActionMsg  = _U('shop_menu_prompt')
@@ -126,7 +126,7 @@ AddEventHandler('esx_weaponshop:hasEnteredMarker', function(zone)
 	end
 end)
 
-AddEventHandler('esx_weaponshop:hasExitedMarker', function(zone)
+AddEventHandler('esx_traficodearmas:hasExitedMarker', function(zone)
 	CurrentAction = nil
 	ESX.UI.Menu.CloseAll()
 end)
@@ -193,12 +193,12 @@ Citizen.CreateThread(function()
 		end
 		if isInMarker and not HasAlreadyEnteredMarker then
 			HasAlreadyEnteredMarker = true
-			TriggerEvent('esx_weaponshop:hasEnteredMarker', currentZone)
+			TriggerEvent('esx_traficodearmas:hasEnteredMarker', currentZone)
 		end
 		
 		if not isInMarker and HasAlreadyEnteredMarker then
 			HasAlreadyEnteredMarker = false
-			TriggerEvent('esx_weaponshop:hasExitedMarker', LastZone)
+			TriggerEvent('esx_traficodearmas:hasExitedMarker', LastZone)
 		end
 	end
 end)
