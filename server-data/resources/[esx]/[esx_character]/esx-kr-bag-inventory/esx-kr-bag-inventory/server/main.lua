@@ -77,7 +77,7 @@ AddEventHandler('esx-kr-bag:InsertBag', function(source)
 end)
 
 RegisterServerEvent('esx-kr-bag:TakeItem')
-AddEventHandler('esx-kr-bag:TakeItem', function(id, item, weight, type)
+AddEventHandler('esx-kr-bag:TakeItem', function(id, item, count, type)
     local src = source
     local identifier = ESX.GetPlayerFromId(src).identifier
     local xPlayer = ESX.GetPlayerFromId(src)
@@ -88,19 +88,19 @@ AddEventHandler('esx-kr-bag:TakeItem', function(id, item, weight, type)
     if result[1] ~= nil then
 
         if type == 'weapon' then
-            xPlayer.addWeapon(item, weight)
+            xPlayer.addWeapon(item, count)
         elseif type == 'item' then
-            xPlayer.addInventoryItem(item, weight)
+            xPlayer.addInventoryItem(item, count)
         end
-                MySQL.Async.execute('UPDATE owned_bags SET itemweight = @itemweight WHERE id = @id', {['@id'] = id, ['@itemweight'] = bag[1].itemweight - 1})    
-                MySQL.Async.execute('DELETE FROM owned_bag_inventory WHERE id = @id AND item = @item AND weight = @weight',{['@id'] = id,['@item'] = item, ['@weight'] = weight})
+                MySQL.Async.execute('UPDATE owned_bags SET itemcount = @itemcount WHERE id = @id', {['@id'] = id, ['@itemcount'] = bag[1].itemcount - 1})    
+                MySQL.Async.execute('DELETE FROM owned_bag_inventory WHERE id = @id AND item = @item AND count = @count',{['@id'] = id,['@item'] = item, ['@count'] = count})
             end
         end)
     end)
 end)
 
 RegisterServerEvent('esx-kr-bag:PutItem')
-AddEventHandler('esx-kr-bag:PutItem', function(id, item, label, weight, type)
+AddEventHandler('esx-kr-bag:PutItem', function(id, item, label, count, type)
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
     local identifier = ESX.GetPlayerFromId(src).identifier
@@ -109,38 +109,38 @@ AddEventHandler('esx-kr-bag:PutItem', function(id, item, label, weight, type)
     
     MySQL.Async.fetchAll('SELECT * FROM owned_bags WHERE identifier = @identifier ',{["@identifier"] = identifier}, function(bag)
 
-    if bag[1].itemweight < Config.MaxDifferentItems then
+    if bag[1].itemcount < Config.MaxDifferentItems then
 
     if type == 'weapon' then
-        xPlayer.removeWeapon(item, weight)
-        MySQL.Async.execute('UPDATE owned_bags SET itemweight = @itemweight WHERE identifier = @identifier', {['@identifier'] = identifier, ['@itemweight'] = bag[1].itemweight + 1})
-		MySQL.Async.execute('INSERT INTO owned_bag_inventory (id, label, item, weight) VALUES (@id, @label, @item, @weight)', {['@id'] = id,['@item']  = item, ['@label']  = label, ['@weight'] = weight})
-    elseif type == 'item' and weight < Config.Weight then
-        xPlayer.removeInventoryItem(item, weight)
+        xPlayer.removeWeapon(item, count)
+        MySQL.Async.execute('UPDATE owned_bags SET itemcount = @itemcount WHERE identifier = @identifier', {['@identifier'] = identifier, ['@itemcount'] = bag[1].itemcount + 1})
+		MySQL.Async.execute('INSERT INTO owned_bag_inventory (id, label, item, count) VALUES (@id, @label, @item, @count)', {['@id'] = id,['@item']  = item, ['@label']  = label, ['@count'] = count})
+    elseif type == 'item' and count < Config.MaxItemCount then
+        xPlayer.removeInventoryItem(item, count)
 		MySQL.Async.fetchAll('SELECT * FROM owned_bag_inventory WHERE id = @id ',{["@id"] = id}, function(result)
 			if result[1] ~= nil then
 				for i=1, #result, 1 do
 					if result[i].item == item then
-						weight = weight + result[i].weight
+						count = count + result[i].count
 						update = 1
 					elseif result[i].item ~= item then
 						insert = 1
 					end
 				end
                     if update == 1 then
-                        MySQL.Async.execute('UPDATE owned_bag_inventory SET weight = @weight WHERE item = @item', {['@item'] = item, ['@weight'] = weight})
+                        MySQL.Async.execute('UPDATE owned_bag_inventory SET count = @count WHERE item = @item', {['@item'] = item, ['@count'] = count})
                     elseif insert == 1 then
-                        MySQL.Async.execute('UPDATE owned_bags SET itemweight = @itemweight WHERE identifier = @identifier', {['@identifier'] = identifier, ['@itemweight'] = bag[1].itemweight + 1})
-                        MySQL.Async.execute('INSERT INTO owned_bag_inventory (id, label, item, weight) VALUES (@id, @label, @item, @weight)', {['@id'] = id,['@item']  = item, ['@label']  = label, ['@weight'] = weight})
+                        MySQL.Async.execute('UPDATE owned_bags SET itemcount = @itemcount WHERE identifier = @identifier', {['@identifier'] = identifier, ['@itemcount'] = bag[1].itemcount + 1})
+                        MySQL.Async.execute('INSERT INTO owned_bag_inventory (id, label, item, count) VALUES (@id, @label, @item, @count)', {['@id'] = id,['@item']  = item, ['@label']  = label, ['@count'] = count})
                     end
                     else
-                        MySQL.Async.execute('UPDATE owned_bags SET itemweight = @itemweight WHERE identifier = @identifier', {['@identifier'] = identifier, ['@itemweight'] = bag[1].itemweight + 1})
-                        MySQL.Async.execute('INSERT INTO owned_bag_inventory (id, label, item, weight) VALUES (@id, @label, @item, @weight)', {['@id'] = id,['@item']  = item, ['@label']  = label, ['@weight'] = weight})
+                        MySQL.Async.execute('UPDATE owned_bags SET itemcount = @itemcount WHERE identifier = @identifier', {['@identifier'] = identifier, ['@itemcount'] = bag[1].itemcount + 1})
+                        MySQL.Async.execute('INSERT INTO owned_bag_inventory (id, label, item, count) VALUES (@id, @label, @item, @count)', {['@id'] = id,['@item']  = item, ['@label']  = label, ['@count'] = count})
 			        end
 		        end)
             end
         else
-            TriggerClientEvent('esx:showNotification', src, '~r~You can only have ' .. Config.Weight .. ' different items in your bag')
+            TriggerClientEvent('esx:showNotification', src, '~r~You can only have ' .. Config.MaxItemCount .. ' different items in your bag')
         end
     end)
 end)

@@ -1,4 +1,4 @@
 Config                            = {}
 
-Config.Weight = 76 
+Config.MaxItemCount = 76 
 Config.MaxDifferentItems = 10
