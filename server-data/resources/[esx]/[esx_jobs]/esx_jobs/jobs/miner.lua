@@ -245,7 +245,7 @@ Config.Jobs.miner = {
 		},
 
 		DiamondDelivery = {
-			Pos = {x = -621.04, y = -228.53, z = 37.05},
+			Pos = {x = -633.04, y = -238.53, z = 38.05},
 			Color = {r = 204, g = 204, b = 0},
 			Size = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
