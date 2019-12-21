@@ -8,7 +8,7 @@ Config.EnableSocietyPayouts = true -- pay from the society account that the play
 Config.DisableWantedLevel   = true
 Config.EnableHud            = false -- enable the default hud? Display current job and accounts (black, bank & cash)
 Config.EnablePvP            = true -- enable pvp?
-Config.MaxWeight            = 24   -- the max inventory weight without backpack
+Config.MaxWeight            = 80   -- the max inventory weight without backpack
 
 Config.PaycheckInterval     = 7 * 60000
 
