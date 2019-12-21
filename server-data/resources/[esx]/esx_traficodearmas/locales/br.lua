@@ -1,14 +1,12 @@
-Locales ['br'] = {
-  ['buy_license'] = 'buy weapon license?',
-  ['yes'] = '%s',
-  ['no'] = 'no',
-  ['weapon_bought'] = 'Comprado por %s R$',
-  ['not_enough_black'] = 'você não tem dinheiro sujo suficiente',
-  ['not_enough'] = 'você não tem dinheiro suficiente',
-  ['already_owned'] = 'Você ja possui essa arma!',
-  ['shop_menu_title'] = 'Comprar',
-  ['shop_menu_prompt'] = 'Pressione ~INPUT_CONTEXT~ para comprar armas.',
-  ['shop_menu_item'] = 'R$%s',
-  ['map_blip'] = 'Loja de Armas',
-  ['used_weapbox'] = 'Você abriu a caixa de armas'
+Locales['br'] = {
+  ['shop'] = 'comprar',
+  ['shops'] = 'lojas',
+  ['press_menu'] = 'pressione ~INPUT_CONTEXT~ para acessar a loja.',
+  ['shop_item'] = '$%s',
+  ['bought'] = 'você acabou de comprar ~y~%sx~s~ ~b~%s~s~ por ~r~$%s~s~',
+  ['not_enough'] = 'você não tem ~r~dinheiro suficiente~s~: %s',
+  ['player_cannot_hold'] = 'você ~r~não~s~ tem bastante ~y~espaço livre~s~ no seu inventário!',
+  ['shop_confirm'] = 'comprou %sx %s por $%s?',
+  ['no'] = 'não',
+  ['yes'] = 'sim',
 }

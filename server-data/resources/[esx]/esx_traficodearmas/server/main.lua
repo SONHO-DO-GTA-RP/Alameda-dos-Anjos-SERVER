@@ -1,96 +1,75 @@
-ESX = nil
-local shopItems = {}
+ESX             = nil
+local ShopItems = {}
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 MySQL.ready(function()
-
-	MySQL.Async.fetchAll('SELECT * FROM weadealer', {}, function(result)
-		for i=1, #result, 1 do
-			if shopItems[result[i].zone] == nil then
-				shopItems[result[i].zone] = {}
-			end
-
-			table.insert(shopItems[result[i].zone], {
-				item  = result[i].item,
-				price = result[i].price,
-				label = ESX.GetWeaponLabel(result[i].item)
-			})
-		end
-
-		TriggerClientEvent('esx_traficodearmas:sendShop', -1, shopItems)
-	end)
-
-end)
-
-ESX.RegisterServerCallback('esx_traficodearmas:getShop', function(source, cb)
-	cb(shopItems)
-end)
-
-ESX.RegisterServerCallback('esx_traficodearmas:buyLicense', function(source, cb)
-	local xPlayer = ESX.GetPlayerFromId(source)
-
-	if xPlayer.getMoney() >= Config.LicensePrice then
-		xPlayer.removeMoney(Config.LicensePrice)
-
-		TriggerEvent('esx_license:addLicense', source, 'weapon', function()
-			cb(true)
-		end)
-	else
-		xPlayer.showNotification(_U('not_enough'))
-		cb(false)
-	end
-end)
-
-ESX.RegisterServerCallback('esx_traficodearmas:buyWeapon', function(source, cb, weaponName, zone)
-	local xPlayer = ESX.GetPlayerFromId(source)
-	local price = GetPrice(weaponName, zone)
-
-	if price == 0 then 
-		print(('esx_traficodearmas:%s attempted to buy a unknown weapon!'):format(xPlayer.identifier))
-		cb(false)
-	else
-		if xPlayer.hasWeapon(weaponName) then
-			xPlayer.showNotification(_U('already_owned'))
-			cb(false)
-		else
-			if zone == 'BlackWeashop' then
-				if xPlayer.getAccount('black_money').money >= price then
-					xPlayer.removeAccountMoney('black_money', price)
-					xPlayer.addWeapon(weaponName, 42)
-	
-					cb(true)
-				else
-					xPlayer.showNotification(_U('not_enough_black'))
-					cb(false)
+	MySQL.Async.fetchAll('SELECT * FROM traficodearmas LEFT JOIN items ON items.name = traficodearmas.item', {}, function(shopResult)
+		for i=1, #shopResult, 1 do
+			if shopResult[i].name then
+				if ShopItems[shopResult[i].store] == nil then
+					ShopItems[shopResult[i].store] = {}
 				end
+
+				table.insert(ShopItems[shopResult[i].store], {
+					label = shopResult[i].label,
+					item  = shopResult[i].item,
+					price = shopResult[i].price,
+				})
 			else
-				if xPlayer.getMoney() >= price then
-					xPlayer.removeMoney(price)
-					xPlayer.addWeapon(weaponName, 42)
-	
-					cb(true)
-				else
-					xPlayer.showNotification(_U('not_enough'))
-					cb(false)
-				end
+				print(('esx_traficodearmas: invalid item "%s" found!'):format(shopResult[i].item))
 			end
 		end
+	end)
+end)
+
+ESX.RegisterServerCallback('esx_traficodearmas:requestDBItems', function(source, cb)
+	cb(ShopItems)
+end)
+
+RegisterServerEvent('esx_traficodearmas:buyItem')
+AddEventHandler('esx_traficodearmas:buyItem', function(itemName, amount, zone)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+
+	amount = ESX.Math.Round(amount)
+
+	-- is the player trying to exploit?
+	if amount < 0 then
+		print('esx_traficodearmas: ' .. xPlayer.identifier .. ' attempted to exploit the shop!')
+		return
+	end
+
+	-- get price
+	local price = 0
+	local itemLabel = ''
+
+	for i=1, #ShopItems[zone], 1 do
+		if ShopItems[zone][i].item == itemName then
+			price = ShopItems[zone][i].price
+			itemLabel = ShopItems[zone][i].label
+			break
+		end
+	end
+
+	price = price * amount
+
+	-- can the player afford this item?
+	if xPlayer.getMoney() >= price then
+		-- can the player carry the said amount of x item?
+		if xPlayer.canCarryItem(itemName, amount) then
+			xPlayer.removeMoney(price)
+			xPlayer.addInventoryItem(itemName, amount)
+			xPlayer.showNotification(_U('bought', amount, itemLabel, ESX.Math.GroupDigits(price)))
+		else
+			xPlayer.showNotification(_U('player_cannot_hold'))
+		end
+	else
+		local missingMoney = price - xPlayer.getMoney()
+		xPlayer.showNotification(_U('not_enough', ESX.Math.GroupDigits(missingMoney)))
 	end
 end)
 
-function GetPrice(weaponName, zone)
-	local price = MySQL.Sync.fetchScalar('SELECT price FROM weadealer WHERE zone = @zone AND item = @item', {
-		['@zone'] = zone,
-		['@item'] = weaponName
-	})
-
-	if price then
-		return price
-	else
-		return 0
-	end
-end
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
