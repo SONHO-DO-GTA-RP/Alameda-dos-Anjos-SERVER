@@ -25,7 +25,7 @@ Config.localWeight = {
 }
 
 Config.VehicleLimit = {
-    [0] = 30000, --Compact
+    [0] = 30000, --DBS
     [1] = 40000, --Sedan
     [2] = 70000, --SUV
     [3] = 25000, --Coupes
