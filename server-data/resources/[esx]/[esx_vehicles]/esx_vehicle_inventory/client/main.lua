@@ -153,8 +153,8 @@ AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory,wei
 	ESX.UI.Menu.Open(
 	  'default', GetCurrentResourceName(), 'inventory_deposit',
 	  {
-	    title    = 'Contenu du coffre',
-	    align    = 'bottom-right',
+	    title    = 'Conteúdo do porta-malas',
+	    align    = 'left',
 	    elements = elements,
 	  },
 	  function(data, menu)
@@ -175,8 +175,8 @@ AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory,wei
 			ESX.UI.Menu.Open(
 			  'default', GetCurrentResourceName(), 'inventory_player',
 			  {
-			    title    = 'Contenu de l\'inventaire',
-			    align    = 'bottom-right',
+			    title    = 'Conteúdo do inventário',
+			    align    = 'left',
 			    elements = elem,
 			  },function(data3, menu3)
 				ESX.UI.Menu.Open(
