@@ -251,7 +251,7 @@ function TakeItem()
     ESX.TriggerServerCallback('esx-kr-bag:getBagInventory', function(bag)
 
         for i=1, #bag, 1 do
-            table.insert(elements, {label = bag[i].label .. ' | ' .. bag[i].count .. 'x', value = bag[i].item, count = bag[i].count})
+            table.insert(elements, {label = bag[i].label .. ' | ' .. bag[i].weight .. 'x', value = bag[i].item, weight = bag[i].weight})
         end
         
         ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'lels',
@@ -264,9 +264,9 @@ function TakeItem()
             local IsWeapon = IsWeapon(data.current.value)
             menu.close()
             if IsWeapon then
-                TriggerServerEvent('esx-kr-bag:TakeItem', BagId, data.current.value, data.current.count, "weapon")
+                TriggerServerEvent('esx-kr-bag:TakeItem', BagId, data.current.value, data.current.weight, "weapon")
             else
-                TriggerServerEvent('esx-kr-bag:TakeItem', BagId, data.current.value, data.current.count, "item")
+                TriggerServerEvent('esx-kr-bag:TakeItem', BagId, data.current.value, data.current.weight, "item")
             end
 
             end, function(data, menu)
@@ -284,8 +284,8 @@ function PutItem()
 
             for i=1, #result.items, 1 do
             local invitem = result.items[i]
-                if invitem.count > 0 then
-                    table.insert(elements, { label = invitem.label .. ' | ' .. invitem.count .. 'x', count = invitem.count, name = invitem.name, label2 = invitem.label})
+                if invitem.weight > 0 then
+                    table.insert(elements, { label = invitem.label .. ' | ' .. invitem.weight .. 'x', weight = invitem.weight, name = invitem.name, label2 = invitem.label})
                 end
             end
           
@@ -296,7 +296,7 @@ function PutItem()
                 local ammo = GetAmmoInPedWeapon(GetPlayerPed(-1), weaponHash)
         
                 if HasPedGotWeapon(GetPlayerPed(-1), weaponHash, false) and weaponList[i].name ~= 'WEAPON_UNARMED' then
-                    table.insert(elements, {label = weaponList[i].label .. ' | ' .. ammo .. 'x', name = weaponList[i].name, count = ammo, label2 = weaponList[i].label})
+                    table.insert(elements, {label = weaponList[i].label .. ' | ' .. ammo .. 'x', name = weaponList[i].name, weight = ammo, label2 = weaponList[i].label})
                 end
             end
         
@@ -311,9 +311,9 @@ function PutItem()
             menu.close()
 
                 if IsWeapon then
-                    TriggerServerEvent('esx-kr-bag:PutItem', BagId, data.current.name, data.current.label2, data.current.count, "weapon")
+                    TriggerServerEvent('esx-kr-bag:PutItem', BagId, data.current.name, data.current.label2, data.current.weight, "weapon")
                 else
-                    TriggerServerEvent('esx-kr-bag:PutItem', BagId, data.current.name, data.current.label2, data.current.count, "item")
+                    TriggerServerEvent('esx-kr-bag:PutItem', BagId, data.current.name, data.current.label2, data.current.weight, "item")
                 end
 
             end, function(data, menu)
