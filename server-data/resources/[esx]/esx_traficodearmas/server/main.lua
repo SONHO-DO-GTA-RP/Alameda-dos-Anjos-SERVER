@@ -4,7 +4,7 @@ local ShopItems = {}
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 MySQL.ready(function()
-	MySQL.Async.fetchAll('SELECT * FROM traficodearmas LEFT JOIN items ON items.name = traficodearmas.item', {}, function(shopResult)
+	MySQL.Async.fetchAll('SELECT * FROM shops LEFT JOIN items ON items.name = shops.item', {}, function(shopResult)
 		for i=1, #shopResult, 1 do
 			if shopResult[i].name then
 				if ShopItems[shopResult[i].store] == nil then
@@ -69,7 +69,6 @@ AddEventHandler('esx_traficodearmas:buyItem', function(itemName, amount, zone)
 		xPlayer.showNotification(_U('not_enough', ESX.Math.GroupDigits(missingMoney)))
 	end
 end)
-
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
