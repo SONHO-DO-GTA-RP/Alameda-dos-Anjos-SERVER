@@ -24,12 +24,12 @@ Citizen.CreateThread(function()
 
 		if isInMarker and not hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = true
-			TriggerEvent('esx_shops:hasEnteredMarker', currentZone)
+			TriggerEvent('esx_traficodearmas:hasEnteredMarker', currentZone)
 		end
 
 		if not isInMarker and hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = false
-			TriggerEvent('esx_shops:hasExitedMarker', lastZone)
+			TriggerEvent('esx_traficodearmas:hasExitedMarker', lastZone)
 		end
 
 		if letSleep then
