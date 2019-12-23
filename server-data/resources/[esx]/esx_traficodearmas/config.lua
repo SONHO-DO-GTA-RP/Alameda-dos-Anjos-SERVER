@@ -12,7 +12,7 @@ Config.LicensePrice  = 50000
 
 Config.Zones = {
 
-	Fabricante_de_Canos = {
+	FabricanteDeCanos = {
 		Legal = true,
 		Items = {},
 		Locations = {
@@ -21,7 +21,7 @@ Config.Zones = {
 		}
 	},
 
-	Fabricante_de_Armas = {
+	FabricanteDeArmas = {
 		Legal = true,
 		Items = {},
 		Locations = {
@@ -30,7 +30,7 @@ Config.Zones = {
 		}
 	},
 
-	Fabricante_de_Carregadores = {
+	FabricanteDeCarregadores = {
 		Legal = true,
 		Items = {},
 		Locations = {
