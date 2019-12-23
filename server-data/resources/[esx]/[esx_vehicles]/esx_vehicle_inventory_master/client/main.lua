@@ -279,21 +279,21 @@ AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory,wei
 			    vehFront = VehicleInFront()
 
           --test
-          local Itemweight =tonumber(getItemyWeight(data.current.value)) * quantity
-          local poid = weight - Itemweight
+--]]local Itemweight =tonumber(getItemyWeight(data.current.value)) * quantity
+        --  local poid = weight - Itemweight
 
 
 
-          for i=1, #PlayerData.inventory, 1 do
+       --   for i=1, #PlayerData.inventory, 1 do
 
-            if PlayerData.inventory[i].name == data.current.value then
-              if tonumber(PlayerData.inventory[i].limit) < tonumber(PlayerData.inventory[i].count) + quantity and PlayerData.inventory[i].limit ~= -1 then
-                max = true
-              else
-                max = false
-              end
-            end
-          end
+          --  if PlayerData.inventory[i].name == data.current.value then
+           --   if tonumber(PlayerData.inventory[i].limit) < tonumber(PlayerData.inventory[i].count) + quantity and PlayerData.inventory[i].limit ~= -1 then
+            --    max = true
+            --  else
+             --   max = false
+           --   end
+         --   end
+ --]]         end
 
           --fin test
 

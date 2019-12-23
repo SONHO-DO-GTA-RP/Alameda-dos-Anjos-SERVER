@@ -109,6 +109,6 @@ AddEventHandler('esx_truck_inventory:addInventoryItem', function(type, model, pl
     function(result)
       local xPlayer  = ESX.GetPlayerFromId(_source)
       xPlayer.removeInventoryItem(item, count)
-    end)
+    
 end)
 end)
