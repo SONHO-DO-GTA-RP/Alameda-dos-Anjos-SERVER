@@ -148,7 +148,7 @@ ESX.RegisterServerCallback('esx_truck:checkvehicle', function(source, cb, vehicl
     else
         isFound = true
     end
-    cb(isFound)
+    cb(false)
 end)
 
 RegisterServerEvent('esx_truck_inventory:AddVehicleList')
