@@ -20,19 +20,19 @@ Config.WeightSqlBased = false
 Config.localWeight = {
 	bread = 125,
 	water = 330,
-	--WEAPON_COMBATPISTOL = 1000, -- poid poir une munnition
+	WEAPON_COMBATPISTOL = 1000, -- poid poir une munnition
 	black_money = 1, -- poids pour un argent
 }
 
 Config.VehicleLimit = {
-    [0] = 30000, --DBS
+    [0] = 30000, --Compact
     [1] = 40000, --Sedan
     [2] = 70000, --SUV
     [3] = 25000, --Coupes
     [4] = 30000, --Muscle
     [5] = 10000, --Sports Classics
     [6] = 5000, --Sports
-    [7] = 50000, --Super
+    [7] = 5000, --Super
     [8] = 5000, --Motorcycles
     [9] = 180000, --Off-road
     [10] = 300000, --Industrial
