@@ -75,26 +75,6 @@ AddEventHandler('esx_truck_inventory:getInventory', function(plate)
 end)
 
 
-
-
-RegisterServerEvent('esx_truck_inventory:addInventoryItem')
-AddEventHandler('esx_truck_inventory:addInventoryItem', function(type, model, plate, item, count, name,ownedV)
-  local _source = source
-  MySQL.Async.fetchAll(
-    'INSERT INTO truck_inventory (item,count,plate,name,owned) VALUES (@item,@qty,@plate,@name,@owned) ON DUPLICATE KEY UPDATE count=count+ @qty',
-    {
-      ['@plate'] = plate,
-      ['@qty'] = count,
-      ['@item'] = item,
-      ['@name'] = name,
-      ['@owned'] = ownedV
-    },
-    function(result)
-      local xPlayer  = ESX.GetPlayerFromId(_source)
-      xPlayer.removeInventoryItem(item, count)
-    end)
-end)
-
 RegisterServerEvent('esx_truck_inventory:removeInventoryItem')
 AddEventHandler('esx_truck_inventory:removeInventoryItem', function(plate, item, count)
   local _source = source
@@ -107,9 +87,28 @@ AddEventHandler('esx_truck_inventory:removeInventoryItem', function(plate, item,
     },
     function(result)
       local xPlayer  = ESX.GetPlayerFromId(_source)
-        xPlayer.addInventoryItem(item, count)   
+      if xPlayer ~= nil then
+        xPlayer.addInventoryItem(item, count)
+      end
     end)
 end)
---if xPlayer.canCarryItem(itemName, amount) then
-			--xPlayer.removeMoney(price)
-			--xPlayer.addInventoryItem(itemName, amount)
+
+
+RegisterServerEvent('esx_truck_inventory:addInventoryItem')
+AddEventHandler('esx_truck_inventory:addInventoryItem', function(type, model, plate, item, count, name,ownedV)
+  local _source = source
+  MySQL.Async.fetchAll(
+    'INSERT INTO truck_inventory (item,count,plate,name,owned) VALUES (@item,@qty,@plate,@name,@owned) ON DUPLICATE KEY UPDATE count=count+ @qty',
+    {
+      ['@plate'] = plate,
+      ['@qty'] = count,
+      ['@item'] = item,
+      ['@name'] = name,
+      ['@owned'] = ownedV,
+    },
+    function(result)
+      local xPlayer  = ESX.GetPlayerFromId(_source)
+      xPlayer.removeInventoryItem(item, count)
+    end)
+end)
+end)
