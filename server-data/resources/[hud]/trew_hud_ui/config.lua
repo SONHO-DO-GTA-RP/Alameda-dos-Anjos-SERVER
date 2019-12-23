@@ -17,9 +17,9 @@ Config.date = {
 Config.voice = {
 
 	levels = {
-		default = 5.0,
-		shout = 12.0,
-		whisper = 1.0,
+		default = 10.0,
+		shout = 30.0,
+		whisper = 2.0,
 		current = 0
 	},
 	
@@ -36,8 +36,8 @@ Config.vehicle = {
 	keys = {
 		seatbelt 	= 'M',
 		cruiser		= '',
-		signalLeft	= '',
-		signalRight	= '',
+		signalLeft	= 'LEFT',
+		signalRight	= 'RIGHT',
 		signalBoth	= 'UP',
 	}
 }
@@ -52,7 +52,7 @@ Config.ui = {
 	showBlackMoney 		= true,
 	showSocietyMoney	= true,
 
-	showDate 			= true,
+	showDate 			= false,
 	showLocation 		= true,
 	showVoice	 		= false,
 

@@ -51,10 +51,10 @@ $(function () {
 				//sortPlayerList();
 				break;
 
-			case 'updatePing':
-				updatePing(event.data.players);
-				applyPingColor();
-				break;
+			// case 'updatePing':
+			// 	updatePing(event.data.players);
+			// 	applyPingColor();
+			// 	break;
 
 			case 'updateServerInfo':
 				if (event.data.maxPlayers) {

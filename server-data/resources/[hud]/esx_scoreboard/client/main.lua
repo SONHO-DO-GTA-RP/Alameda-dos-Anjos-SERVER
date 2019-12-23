@@ -29,13 +29,13 @@ AddEventHandler('esx_scoreboard:updateConnectedPlayers', function(connectedPlaye
 	UpdatePlayerTable(connectedPlayers)
 end)
 
-RegisterNetEvent('esx_scoreboard:updatePing')
-AddEventHandler('esx_scoreboard:updatePing', function(connectedPlayers)
-	SendNUIMessage({
-		action  = 'updatePing',
-		players = connectedPlayers
-	})
-end)
+-- RegisterNetEvent('esx_scoreboard:updatePing')
+-- AddEventHandler('esx_scoreboard:updatePing', function(connectedPlayers)
+-- 	SendNUIMessage({
+-- 		action  = 'updatePing',
+-- 		players = connectedPlayers
+-- 	})
+-- end)
 
 RegisterNetEvent('esx_scoreboard:toggleID')
 AddEventHandler('esx_scoreboard:toggleID', function(state)
