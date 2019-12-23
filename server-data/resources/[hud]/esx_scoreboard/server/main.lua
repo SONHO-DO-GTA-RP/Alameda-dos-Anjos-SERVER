@@ -43,7 +43,7 @@ function AddPlayerToScoreboard(xPlayer, update)
 	local playerId = xPlayer.source
 
 	connectedPlayers[playerId] = {}
-	connectedPlayers[playerId].ping = GetPlayerPing(playerId)
+	--connectedPlayers[playerId].ping = GetPlayerPing(playerId)
 	connectedPlayers[playerId].id = playerId
 	connectedPlayers[playerId].name = Sanitize(xPlayer.getName())
 	connectedPlayers[playerId].job = xPlayer.job.name
