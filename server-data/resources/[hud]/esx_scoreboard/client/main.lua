@@ -66,10 +66,10 @@ function UpdatePlayerTable(connectedPlayers)
 	for k,v in pairs(connectedPlayers) do
 
 		if num == 1 then
-			table.insert(formattedPlayerList, ('<tr><td>%s</td><td>%s</td><td>%s</td>'):format(v.name, v.id, v.ping))
+			table.insert(formattedPlayerList, ('<tr><td>%s</td><td>%s</td>'):format(v.name, v.id))
 			num = 2
 		elseif num == 2 then
-			table.insert(formattedPlayerList, ('<td>%s</td><td>%s</td><td>%s</td></tr>'):format(v.name, v.id, v.ping))
+			table.insert(formattedPlayerList, ('<td>%s</td><td>%s</td></tr>'):format(v.name, v.id))
 			num = 1
 		end
 
