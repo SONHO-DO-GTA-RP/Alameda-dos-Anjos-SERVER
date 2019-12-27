@@ -32,7 +32,7 @@ client_scripts {
 	'locales/sv.lua',
 	'locales/cs.lua',
 	'config.lua',
-	'client/main.lua'
+	-- 'client/main.lua'
 }
 
 dependency 'es_extended'
