@@ -50,14 +50,14 @@ Config.Zones = {
 	FabricanteDeCanos = {
 		Items = {},
 		Pos = {
-			{x = -680.114, y = -923.978, z = 23.077},
+			{x = -680.114, y = -923.978, z = 22.077},
 		}
 	},
 
 	FabricanteDeArmas = {
 		Items = {},
 		Pos = {
-			{x = -1129.132,   y = 2692.212, z = 18.800},
+			{x = -1129.132,   y = 2692.212, z = 17.800},
 		}
 	},
 
