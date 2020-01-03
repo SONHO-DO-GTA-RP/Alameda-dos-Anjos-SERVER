@@ -371,7 +371,7 @@ ESX.RegisterServerCallback('esx_policejob:buyWeapon', function(source, cb, weapo
 		if type == 1 then
 			if xPlayer.getMoney() >= selectedWeapon.price then
 				xPlayer.removeMoney(selectedWeapon.price)
-				xPlayer.addWeapon(weaponName, 100)
+				xPlayer.addWeapon(weaponName, 200)
 
 				cb(true)
 			else
