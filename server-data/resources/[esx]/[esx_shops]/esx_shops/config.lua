@@ -62,6 +62,7 @@ Config.Zones = {
 	},
 
 	FabricanteDeCarregadores = {
+		Items = {},
 		Pos = {
 			{x = -245.762,   y = -16.798, z = 73.769},
 		--npc (247.0939, -17.0465, 73.7618, 27.0335)
